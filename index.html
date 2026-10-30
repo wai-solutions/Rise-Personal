@@ -507,7 +507,7 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 
 .puzzle{position:relative;height:260vh}
 .pz-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3.5vh,36px);padding-block:84px 24px}
-.pz-head{text-align:center;width:100%}
+.pz-head{text-align:center;width:100%;position:relative;z-index:2}
 .pz-board{display:grid;grid-template-columns:1fr 1fr;width:min(600px,88vw,56vh);aspect-ratio:1;gap:40px}
 .pz{position:relative;color:#fff;background:linear-gradient(135deg,#0170FD 0%,#4B3FEA 50%,#7710D1 100%);background-size:200% 200%;padding:clamp(12px,2.2vw,24px);display:flex;flex-direction:column;justify-content:flex-end;gap:6px;will-change:transform;overflow:hidden}
 .pz:nth-child(1){background-position:0 0;border-radius:28px 6px 6px 6px}
@@ -517,7 +517,7 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 .pz-n{position:absolute;top:10px;left:14px;font-family:var(--display);font-weight:800;font-size:1.6rem;opacity:.7}
 .pz h3{font-size:clamp(1.3rem,2.6vw,2.1rem);text-transform:uppercase;line-height:.95}
 .pz p{font-size:clamp(.78rem,1.4vw,.95rem);line-height:1.35;opacity:.9}
-.pz-cap{text-align:center;color:var(--muted);max-width:52ch}
+.pz-cap{text-align:center;color:var(--muted);max-width:52ch;position:relative;z-index:2}
 .puzzle.static{height:auto}.puzzle.static .pz-pin{position:static;height:auto;padding-block:60px}
 @media (max-width:520px){.pz p{display:none}}
 
@@ -1319,7 +1319,7 @@ function studioFx(vh){
       var ph=$(".ss-photo",ss);ph.style.setProperty("--gs",(1-best/4).toFixed(2));ph.style.setProperty("--sc",(1.14-best*.035).toFixed(3));$("#ssBar").style.transform="scaleX("+((best+1)/5)+")"}}
   var pz=$("#puzzle");
   if(pz){var r=pz.getBoundingClientRect(),p=reduced?1:clamp(-r.top/Math.max(1,r.height-vh)*1.25),e=1-Math.pow(1-p,3),k=1-e;
-    var off=[[-34,-26,-20],[34,-30,16],[-30,28,14],[32,24,-18]];
+    var off=[[-36,-14,-20],[36,-16,16],[-32,15,14],[34,13,-18]];
     $$(".pz",pz).forEach(function(el,i){var o=off[i];el.style.transform="translate3d("+(o[0]*k).toFixed(2)+"vw,"+(o[1]*k).toFixed(2)+"vh,0) rotate("+(o[2]*k).toFixed(2)+"deg) scale("+(.86+.14*e).toFixed(3)+")"});
     $("#pzBoard").style.gap=(k*40).toFixed(1)+"px"}
   var cs=$$(".cs");
