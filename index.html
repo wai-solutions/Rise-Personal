@@ -469,6 +469,77 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 .mq i{font-style:normal;background:linear-gradient(100deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .mq.outline{color:transparent;-webkit-text-stroke:1.5px var(--faint)}
 
+/* ---------- studio motion ---------- */
+.st-hero .ch-title{max-width:11ch}
+.st-art{position:absolute;right:max(24px,6vw);top:16%;width:min(34vw,420px);aspect-ratio:4/5;z-index:2}
+.st-blob{inset:-14%;border-radius:50%;background:radial-gradient(circle,rgba(1,112,253,.35),rgba(119,16,209,.22) 45%,transparent 70%);filter:blur(8px)}
+.st-frame{inset:6% -6% -6% 6%;border-radius:30px;border:1.5px solid rgba(119,16,209,.45)}
+.st-card{inset:0;border-radius:30px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(20,21,27,.45)}
+.st-card img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.st-card span{position:absolute;left:18px;bottom:16px;color:#fff;font-weight:600;font-size:.9rem}
+.st-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,9,15,.7));pointer-events:none}
+.st-chip{padding:.55em 1.1em;border-radius:999px;background:#fff;color:#14151B;font-weight:700;font-size:.95rem;box-shadow:0 14px 30px -12px rgba(20,21,27,.35);border:1px solid rgba(20,21,27,.08);white-space:nowrap}
+@media (max-width:980px){.st-art{display:none}}
+
+.ss-wrap{padding-bottom:clamp(40px,8vw,90px)}
+.ss{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(30px,6vw,90px)}
+.ss > *{min-width:0}
+.ss-media{position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);align-self:start;display:flex;flex-direction:column;gap:14px}
+.ss-photo{position:relative;height:min(70vh,640px);border-radius:28px;overflow:hidden}
+.ss-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:grayscale(var(--gs,1)) contrast(1.05);transform:scale(var(--sc,1.14));transition:filter .6s,transform .8s var(--ease)}
+.ss-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,9,15,.75))}
+.ss-num{position:absolute;left:18px;bottom:2px;font-family:var(--display);font-weight:900;font-size:clamp(6rem,12vw,10rem);line-height:.8;color:#fff}
+.ss-cap{position:absolute;right:20px;bottom:22px;color:rgba(255,255,255,.88);font-weight:600}
+.ss-bar{height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.ss-bar b{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));transform-origin:0 50%;transform:scaleX(.2);transition:transform .5s var(--ease)}
+.ss-steps{display:flex;flex-direction:column}
+.ss-step{min-height:66vh;display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:.32;transform:translateX(18px);transition:opacity .5s,transform .7s var(--ease)}
+.ss-step.on{opacity:1;transform:none}
+.ss-step h3{font-size:clamp(2.6rem,5vw,4.4rem);text-transform:uppercase}
+.ss-step p{color:var(--muted);font-size:1.1rem;max-width:46ch}
+@media (max-width:860px){
+  .ss{grid-template-columns:1fr;gap:0}
+  .ss-media{top:calc(env(safe-area-inset-top,0px) + 70px);z-index:3;background:var(--bg);padding-bottom:10px}
+  .ss-photo{height:32vh}
+  .ss-num{font-size:5rem}
+  .ss-step{min-height:58vh;transform:none}
+}
+
+.puzzle{position:relative;height:260vh}
+.pz-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3.5vh,36px);padding-block:84px 24px}
+.pz-head{text-align:center;width:100%}
+.pz-board{display:grid;grid-template-columns:1fr 1fr;width:min(600px,88vw,56vh);aspect-ratio:1;gap:40px}
+.pz{position:relative;color:#fff;background:linear-gradient(135deg,#0170FD 0%,#4B3FEA 50%,#7710D1 100%);background-size:200% 200%;padding:clamp(12px,2.2vw,24px);display:flex;flex-direction:column;justify-content:flex-end;gap:6px;will-change:transform;overflow:hidden}
+.pz:nth-child(1){background-position:0 0;border-radius:28px 6px 6px 6px}
+.pz:nth-child(2){background-position:100% 0;border-radius:6px 28px 6px 6px}
+.pz:nth-child(3){background-position:0 100%;border-radius:6px 6px 6px 28px}
+.pz:nth-child(4){background-position:100% 100%;border-radius:6px 6px 28px 6px}
+.pz-n{position:absolute;top:10px;left:14px;font-family:var(--display);font-weight:800;font-size:1.6rem;opacity:.7}
+.pz h3{font-size:clamp(1.3rem,2.6vw,2.1rem);text-transform:uppercase;line-height:.95}
+.pz p{font-size:clamp(.78rem,1.4vw,.95rem);line-height:1.35;opacity:.9}
+.pz-cap{text-align:center;color:var(--muted);max-width:52ch}
+.puzzle.static{height:auto}.puzzle.static .pz-pin{position:static;height:auto;padding-block:60px}
+@media (max-width:520px){.pz p{display:none}}
+
+.cs-stack{display:flex;flex-direction:column;gap:22px;margin-top:34px;padding-bottom:6vh}
+.cs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px + var(--i) * 14px);min-height:min(56vh,420px);border-radius:28px;padding:clamp(24px,4vw,48px);background:#F7F7FA;border:1px solid rgba(20,21,27,.1);box-shadow:0 -18px 40px -30px rgba(20,21,27,.35);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:30px;align-items:end;transform-origin:50% 0;will-change:transform}
+.cs > *{min-width:0}
+.cs-l{display:flex;flex-direction:column;gap:8px;align-self:stretch;justify-content:space-between}
+.cs-n{font-family:var(--display);font-weight:900;font-size:clamp(5rem,10vw,8rem);line-height:.8;background:linear-gradient(100deg,#0170FD,#7710D1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cs-r{display:flex;flex-direction:column;gap:10px}
+.cs-before{font-size:1.05rem;color:rgba(20,21,27,.5);text-decoration:line-through;text-decoration-color:rgba(119,16,209,.6)}
+.cs-after{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5vw,4.2rem);line-height:.9;text-transform:uppercase;color:#14151B;text-wrap:balance}
+.cs-copy{color:rgba(20,21,27,.7);max-width:48ch}
+.cs-dark{background:#0E1020;border-color:transparent}
+.cs-dark .cs-copy{color:rgba(236,237,243,.75)}
+.cs-dark .eyebrow{color:rgba(236,237,243,.6)}
+@media (max-width:760px){.cs{grid-template-columns:1fr;gap:16px;min-height:0}.cs-l{flex-direction:row;align-items:flex-end}.cs-n{font-size:4rem}}
+
+.logo-band{overflow:hidden;margin-top:40px;padding-block:22px;border-block:1px solid rgba(236,237,243,.12)}
+.mq.logos{font-size:1rem;align-items:center}
+.mq.logos img{height:40px;width:auto;margin-right:72px;opacity:.9;flex:none}
+.end-cta{position:relative;overflow:hidden;background:radial-gradient(600px circle at var(--sx,30%) var(--sy,40%),rgba(1,112,253,.14),rgba(119,16,209,.08) 40%,transparent 70%)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .layer{transform:none!important}
@@ -914,8 +985,17 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 
 <!-- ======================= STUDIO (light) ======================= -->
 <section class="page" id="p-studio" data-route="studio" hidden>
-  <header class="ch-hero scene">
-    <div class="layer" data-speed=".3" style="right:-3vw;top:10%;font-family:var(--display);font-weight:900;font-size:clamp(9rem,24vw,22rem);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--line)">STUDIO</div>
+  <header class="ch-hero scene st-hero">
+    <div class="layer" data-speed=".3" style="right:-3vw;top:6%;font-family:var(--display);font-weight:900;font-size:clamp(9rem,24vw,22rem);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--line)">STUDIO</div>
+    <div class="st-art" aria-hidden="true">
+      <div class="layer st-blob" data-speed="-.15" data-depth="24"></div>
+      <div class="layer st-frame" data-speed="-.35" data-depth="70" data-rot="10"></div>
+      <div class="layer st-card" data-speed="-.25" data-depth="44" data-rot="14"><img src="assets/sawaf.webp" alt=""><span>Mohamed El Sawaf</span></div>
+      <div class="layer st-chip" data-speed="-.6" data-depth="90" style="left:-6%;top:18%">Strategy</div>
+      <div class="layer st-chip" data-speed="-.45" data-depth="60" style="right:-8%;top:34%">Content</div>
+      <div class="layer st-chip" data-speed="-.75" data-depth="110" style="left:4%;bottom:12%">Media</div>
+      <div class="layer st-chip" data-speed="-.3" data-depth="40" style="right:2%;bottom:4%">Data</div>
+    </div>
     <div class="wrap">
       <div class="ch-meta"><span class="stage-pill">Behind the journey</span><span class="eyebrow">Rise Personal · Dubai, working across the GCC, Egypt and Europe</span></div>
       <h1 class="ch-title" data-split>A team behind every engagement</h1>
@@ -925,22 +1005,38 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 
   <section class="block">
     <div class="wrap">
-      <div class="meet-grid">
-        <figure class="portrait" style="margin:0"><img src="assets/sawaf.webp" alt="Mohamed El Sawaf" data-img-speed=".08" width="640" height="800"><figcaption>Mohamed El Sawaf</figcaption></figure>
-        <div>
-          <p class="eyebrow">Leadership</p>
-          <h2 class="h2" style="margin-top:12px">Doing it before it had a name.</h2>
-          <p class="body-copy" style="margin-top:16px">Founder of Rise Personal, leading the team and the group behind it. Passion first, then the experts, then a process that has been tried many times and worked.</p>
-          <div class="stats"><div><b class="grad">3 yrs</b><span>of confidential client work</span></div><div><b class="grad">5</b><span>sectors, from startups to healthcare</span></div><div><b class="grad">3</b><span>regions: GCC, Egypt, Europe</span></div></div>
-        </div>
+      <p class="eyebrow">Leadership</p>
+      <h2 class="h2" style="margin-top:12px;max-width:16ch" data-scrub>Mohamed El Sawaf. <span class="grad">Doing it before it had a name.</span></h2>
+      <div class="stats" id="stStats"><div><b class="grad" data-count="3" data-suffix=" yrs">3 yrs</b><span>of confidential client work</span></div><div><b class="grad" data-count="5">5</b><span>sectors, from startups to healthcare</span></div><div><b class="grad" data-count="3">3</b><span>regions: GCC, Egypt, Europe</span></div></div>
+    </div>
+  </section>
+
+  <section class="ss-wrap">
+    <div class="wrap ss" id="ss">
+      <div class="ss-media">
+        <div class="ss-photo"><img src="assets/sawaf.webp" alt="Mohamed El Sawaf" width="640" height="800"><div class="ss-shade"></div><span class="ss-num" id="ssNum">01</span><span class="ss-cap" id="ssCap">Since childhood</span></div>
+        <div class="ss-bar"><b id="ssBar"></b></div>
       </div>
-      <div class="story" style="margin-top:50px" aria-label="Sawaf's story in five steps">
-        <article><span class="n grad">01</span><h3>Since childhood</h3><p>He noticed what made a person stand out and helped them be seen for it. He did not know it was personal branding. It was what he loved doing.</p></article>
-        <article><span class="n grad">02</span><h3>Sculptor and interior engineer</h3><p>A sculpture graduate who made statues across Egypt. Shaping something raw until people stop and look taught him the lesson he uses now.</p></article>
-        <article><span class="n grad">03</span><h3>Marketing and business</h3><p>Public-sector work through Bnsights and large private-sector projects. He learned how deals are made and why people buy from people first.</p></article>
-        <article><span class="n grad">04</span><h3>Personal branding</h3><p>The pattern had a name. Helping people unleash their potential changed their position and their income, so he made it his work.</p></article>
-        <article><span class="n grad">05</span><h3>A process that works</h3><p>He learned from experts and tested it with real clients, again and again: discovery, a blueprint for voice and values, then message, identity and reach.</p></article>
+      <div class="ss-steps">
+        <article class="ss-step on" data-cap="Since childhood"><span class="eyebrow">01 · Since childhood</span><h3>He saw what made people stand out</h3><p>As a child, Sawaf noticed what made a person stand out and helped people be seen for it. He did not know it was personal branding. It was simply what he loved doing.</p></article>
+        <article class="ss-step" data-cap="Sculptor"><span class="eyebrow">02 · Sculptor and interior engineer</span><h3>Creating something from nothing</h3><p>He graduated from the sculpture department and made statues across Egypt. Shaping something raw until people stop and look taught him a lesson he now uses on people.</p></article>
+        <article class="ss-step" data-cap="Business"><span class="eyebrow">03 · Marketing and business development</span><h3>Learning how business really moves</h3><p>Public-sector work through Bnsights and large private-sector projects for high-end clients showed him why people buy from people long before they buy from brands.</p></article>
+        <article class="ss-step" data-cap="Personal branding"><span class="eyebrow">04 · Personal branding</span><h3>The pattern finally had a name</h3><p>What he had always done was personal branding. Helping people unleash their potential changed their position and their income, so he made it his work.</p></article>
+        <article class="ss-step" data-cap="The method"><span class="eyebrow">05 · A process that works</span><h3>From a talent to a method</h3><p>He learned from the experts, then tested it with real clients again and again: discovery, a blueprint for voice and values, then message, identity and reach.</p></article>
       </div>
+    </div>
+  </section>
+
+  <section class="puzzle" id="puzzle">
+    <div class="pz-pin">
+      <div class="wrap pz-head"><p class="eyebrow">The team</p><h2 class="h2" style="margin-top:10px">We complete the puzzle <span class="grad">together.</span></h2></div>
+      <div class="pz-board" id="pzBoard">
+        <div class="pz"><span class="pz-n">01</span><h3>Strategy and positioning</h3><p>Archetype, story and message, built from who you are.</p></div>
+        <div class="pz"><span class="pz-n">02</span><h3>Content and creative</h3><p>Scripts, visuals and video in your voice.</p></div>
+        <div class="pz"><span class="pz-n">03</span><h3>Media and distribution</h3><p>Channels, rhythm and reach that find the right people.</p></div>
+        <div class="pz"><span class="pz-n">04</span><h3>Data and technology</h3><p>Measurement, dashboards and digital products.</p></div>
+      </div>
+      <p class="pz-cap wrap">Four specialist teams, one face for you. Each partner brings what the others lack.</p>
     </div>
   </section>
 
@@ -949,24 +1045,13 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
       <p class="eyebrow">Work we don't publish</p>
       <h2 class="h2" style="margin-top:12px;max-width:18ch">Three years of results <span class="grad">with no names on them.</span></h2>
       <p class="body-copy" style="margin-top:14px">Every engagement starts under an NDA. We share what changed, never who it changed for.</p>
-      <div class="cases" style="margin-top:28px">
-        <article class="case"><span class="eyebrow">Startup founders</span><h3>Unknown to investors, then the face of the company</h3><p>Founders positioned before going to market. Investors judged the founders first, and that fed into how the company was valued.</p></article>
-        <article class="case"><span class="eyebrow">Private-sector company</span><h3>The board became the brand</h3><p>Senior managers respected inside the industry but invisible outside it became the visible faces of the business.</p></article>
-        <article class="case"><span class="eyebrow">Business consulting</span><h3>From a trusted network to a public name</h3><p>Consultants whose work travelled only by introduction are now recognised public figures with far wider networks.</p></article>
-        <article class="case"><span class="eyebrow">Healthcare</span><h3>From word of mouth to reputation</h3><p>A physician's message built around her values and made visible, within the rules her profession sets.</p></article>
-        <article class="case"><span class="eyebrow">Sustainability</span><h3>From no presence to a recognised voice</h3><p>A leader with no public profile. We started with what she stands for, then built her presence on the ground and online.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="wrap">
-      <p class="eyebrow">The team</p>
-      <div class="grid-2" style="margin-top:18px">
-        <div class="case"><h3>Strategy and positioning</h3><p>Archetype, story and message, built from who you are and where you want to be known.</p></div>
-        <div class="case"><h3>Content and creative</h3><p>Scripts, visuals and video in your voice, written for each platform and its rules.</p></div>
-        <div class="case"><h3>Media and distribution</h3><p>The channels, rhythm and paid reach that put the right people in front of you.</p></div>
-        <div class="case"><h3>Data and technology</h3><p>Measurement, dashboards and digital products, with our technology sister company.</p></div>
+      <div class="cs-stack" id="csStack">
+        <article class="cs" style="--i:0"><div class="cs-l"><span class="cs-n">01</span><span class="eyebrow">Startup founders</span></div><div class="cs-r"><p class="cs-before">Unknown to investors</p><p class="cs-after">The credible face of the company</p><p class="cs-copy">Positioned before going to market. Investors judged the founders first, and that fed into how the company was valued.</p></div></article>
+        <article class="cs" style="--i:1"><div class="cs-l"><span class="cs-n">02</span><span class="eyebrow">Private-sector company</span></div><div class="cs-r"><p class="cs-before">Respected inside, invisible outside</p><p class="cs-after">The board became the brand</p><p class="cs-copy">Senior managers became the visible faces of the business, in the room and online, and the company's results followed.</p></div></article>
+        <article class="cs" style="--i:2"><div class="cs-l"><span class="cs-n">03</span><span class="eyebrow">Business consulting</span></div><div class="cs-r"><p class="cs-before">Known only by introduction</p><p class="cs-after">Recognised public names</p><p class="cs-copy">Sharp consultants whose work travelled by referral now have networks far wider than the ones they started with.</p></div></article>
+        <article class="cs" style="--i:3"><div class="cs-l"><span class="cs-n">04</span><span class="eyebrow">Healthcare</span></div><div class="cs-r"><p class="cs-before">Known by word of mouth</p><p class="cs-after">Known by reputation</p><p class="cs-copy">A physician's message built around her values and made visible, within the rules her profession sets.</p></div></article>
+        <article class="cs" style="--i:4"><div class="cs-l"><span class="cs-n">05</span><span class="eyebrow">Sustainability</span></div><div class="cs-r"><p class="cs-before">No online presence</p><p class="cs-after">A recognised voice</p><p class="cs-copy">We started with what she stands for, then built her presence on the ground and online.</p></div></article>
+        <article class="cs cs-dark" style="--i:5"><div class="cs-l"><span class="cs-n">06</span><span class="eyebrow">Your story</span></div><div class="cs-r"><p class="cs-after" style="color:#fff">Want to know more?</p><p class="cs-copy">Ask for a confidential introduction. NDA first, outcomes never identities, nothing public without your written yes.</p><div class="actions" style="margin-top:6px"><a class="btn btn-wa" href="https://wa.me/971506832835" target="_blank" rel="noopener">Request an introduction</a></div></div></article>
       </div>
     </div>
   </section>
@@ -976,6 +1061,7 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
       <p class="eyebrow">Our group</p>
       <h2 class="h2" style="margin-top:12px;max-width:18ch">Eight companies. <span class="gb-grad">One set of owners and teams.</span></h2>
       <p class="gb-copy">Apps and marketplaces, consulting, AI and brand, with teams across the UAE, Egypt and Portugal working as one.</p>
+      <div class="logo-band" aria-hidden="true"><div class="mq logos" data-mq="logos" data-dir="1"></div></div>
       <div class="group" style="margin-top:34px">
         <a href="https://drp9-tech.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/drp9tech.webp" alt="" width="200" height="52"></span><div><b>DRP9 Tech</b><span>Apps, platforms and AI agents for founders and large organisations.</span></div></a>
         <a href="https://wai-s.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/wais.webp" alt="" width="200" height="52"></span><div><b>WAI-S</b><span>A strategic partner for business and individual growth.</span></div></a>
@@ -1004,7 +1090,7 @@ body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
 
   <section class="end-cta">
     <div class="wrap">
-      <h2>Tell us where you want <span class="grad">to be known.</span></h2>
+      <h2 data-scrub>Tell us where you want <span class="grad">to be known.</span></h2>
       <p class="body-copy" style="margin-top:18px">One message is enough to start. Our team replies, and we share scope after a first conversation.</p>
       <div class="actions"><a class="btn btn-wa" href="https://wa.me/971506832835" target="_blank" rel="noopener">Start a WhatsApp chat</a><a class="btn" href="#prologue">Walk the journey again</a></div>
       <p class="fine" style="margin-top:16px">WhatsApp: <span style="user-select:all">+971 50 683 2835</span></p>
@@ -1198,6 +1284,7 @@ $$("[data-scrub]").forEach(function(el){el._words=splitWords(el)});
 function fillMq(){
   var a=ARC();
   $$("[data-mq]").forEach(function(el){
+    if(el.dataset.mq==="logos"){var lc=["drp9tech","wais","bnsights","uniek","imolty","drp9","la7ma","wijhat"].map(function(n){return '<img src="assets/g/'+n+'.webp" alt="">'}).join("");el.innerHTML=lc+lc+lc+lc+lc+lc;return}
     var items=el.dataset.mq==="stages"?["In the room","On the record","On screen"]:S.arch?WS().concat([a.name.replace("The ","")]):["Your three words","Your archetype","Your story"];
     var chunk=items.map(function(w){return "<span>"+esc(w)+"</span><img class=\"mq-mark\" src=\"assets/mark.webp\" alt=\"\">"}).join("");
     el.innerHTML=chunk+chunk+chunk+chunk+chunk+chunk;
@@ -1215,10 +1302,31 @@ function cache(pg){
   sizeHS();
 }
 function sizeHS(){
+  var pzEl=$("#puzzle");if(pzEl&&reduced)pzEl.classList.add("static");
   if(!C.hs)return;
   if(reduced){C.hs.classList.add("static");C.hs.style.height="";return}
   C.hs.style.height=(innerHeight+Math.max(0,C.track.scrollWidth-innerWidth))+"px";
 }
+
+
+/* studio effects */
+var countsDone=false;
+function studioFx(vh){
+  if(current!=="studio")return;
+  var ss=$("#ss");
+  if(ss){var steps=$$(".ss-step",ss),best=0,bd=1e9;steps.forEach(function(st,i){var r=st.getBoundingClientRect(),d=Math.abs(r.top+r.height/2-vh*.55);if(d<bd){bd=d;best=i}});
+    if(ss._i!==best){ss._i=best;steps.forEach(function(st,i){st.classList.toggle("on",i===best)});$("#ssNum").textContent="0"+(best+1);$("#ssCap").textContent=steps[best].dataset.cap;
+      var ph=$(".ss-photo",ss);ph.style.setProperty("--gs",(1-best/4).toFixed(2));ph.style.setProperty("--sc",(1.14-best*.035).toFixed(3));$("#ssBar").style.transform="scaleX("+((best+1)/5)+")"}}
+  var pz=$("#puzzle");
+  if(pz){var r=pz.getBoundingClientRect(),p=reduced?1:clamp(-r.top/Math.max(1,r.height-vh)*1.25),e=1-Math.pow(1-p,3),k=1-e;
+    var off=[[-34,-26,-20],[34,-30,16],[-30,28,14],[32,24,-18]];
+    $$(".pz",pz).forEach(function(el,i){var o=off[i];el.style.transform="translate3d("+(o[0]*k).toFixed(2)+"vw,"+(o[1]*k).toFixed(2)+"vh,0) rotate("+(o[2]*k).toFixed(2)+"deg) scale("+(.86+.14*e).toFixed(3)+")"});
+    $("#pzBoard").style.gap=(k*40).toFixed(1)+"px"}
+  var cs=$$(".cs");
+  cs.forEach(function(c,i){var n=cs[i+1];if(!n){c.style.transform="";return}var a=c.getBoundingClientRect(),b=n.getBoundingClientRect(),p=clamp((a.bottom-b.top)/a.height);c.style.transform="scale("+(1-p*.07).toFixed(3)+")";c.style.filter="brightness("+(1-p*.12).toFixed(3)+")"});
+  if(!countsDone){var st=$("#stStats");if(st&&st.getBoundingClientRect().top<vh*.88){countsDone=true;if(!reduced){var t0c=performance.now();$$("[data-count]",st).forEach(function(b){var v=+b.dataset.count,suf=b.dataset.suffix||"";(function step(t){var q=Math.min(1,(t-t0c)/1400),ee=1-Math.pow(1-q,3);b.textContent=Math.round(v*ee)+suf;if(q<1)requestAnimationFrame(step)})(t0c)})}}}
+}
+window.addEventListener("pointermove",function(e){if(current!=="studio")return;var ec=document.querySelector("#p-studio .end-cta");if(!ec)return;var r=ec.getBoundingClientRect();ec.style.setProperty("--sx",(e.clientX-r.left)+"px");ec.style.setProperty("--sy",(e.clientY-r.top)+"px")},{passive:true});
 
 /* floating stone dust */
 var dust=$("#dust"),dctx=dust.getContext("2d"),DP=[],dW=0,dH=0,dpr=Math.min(1.5,window.devicePixelRatio||1);
@@ -1276,6 +1384,7 @@ function loop(now){
     C.track.style.transform="translate3d("+(-hp2*dist).toFixed(1)+"px,0,0)";$("#hsBar").style.transform="scaleX("+hp2.toFixed(3)+")";
     C.hsN.forEach(function(n){var c=n.parentElement.getBoundingClientRect();n.style.transform="translate3d("+((c.left+c.width/2-innerWidth/2)*-.16).toFixed(1)+"px,0,0)"})}
   carveUpdate();
+  studioFx(vh);
   drawDust();
 }
 
