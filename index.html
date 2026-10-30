@@ -197,12 +197,19 @@ label.fld{display:flex;flex-direction:column;gap:6px;font-size:.85rem;font-weigh
 .carve-meter i{height:3px;width:42px;background:var(--line);border-radius:2px;overflow:hidden;position:relative}
 .carve-meter i b{position:absolute;inset:0;background:linear-gradient(90deg,var(--blue),var(--purple));transform-origin:0 50%;transform:scaleX(0)}
 @media (max-width:860px){
-  .carve-stage{grid-template-columns:1fr;grid-template-rows:1fr auto;align-content:center;padding-block:76px 70px}
-  .carve-art{grid-row:1;height:auto}
-  .carve-art canvas{width:min(300px,62vw);max-height:44vh}
+  .carve-stage{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:start;gap:18px;padding-block:calc(env(safe-area-inset-top,0px) + 84px) 64px}
+  .carve-art{grid-row:1;height:auto;min-height:0}
+  .carve-art canvas{height:min(34vh,34svh,320px);width:auto;max-width:72vw;max-height:none}
+  .halo{width:min(70vw,320px)}
   .carve-copy{justify-self:start}
-  .carve-lines{font-size:clamp(2.4rem,10.5vw,3.6rem);min-height:3.8em}
-  .carve-sub{font-size:1rem}
+  .carve-lines{font-size:clamp(2.1rem,9vw,3rem);min-height:2.75em}
+  .carve-sub{font-size:1rem;margin-top:14px}
+  .carve-meter{margin-top:18px}
+  .scroll-hint{display:none}
+}
+@media (max-width:860px) and (max-height:700px){
+  .carve-art canvas{height:28vh}
+  .carve-sub{display:none}
 }
 
 .thesis{position:relative;overflow:hidden;padding-block:clamp(90px,14vw,180px)}
