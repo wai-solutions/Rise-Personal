@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08090F">
+<link rel="icon" href="assets/mark.webp">
+<title>Rise Personal Journey</title>
+<meta name="description" content="A seven-chapter journey to build your personal brand with Mohamed El Sawaf and Rise Personal: in the room first, then on the record, then on screen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;700;800;900&family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<style>
+/* Layout: one long ascent. Each chapter is its own scrolling page; the ground darkens to night at the start and lightens to dawn at the end, as the visitor carves a brand out of raw stone. */
+:root{
+  --ink:#14151B; --mist:#E6E6EA; --blue:#0170FD; --purple:#7710D1; --blue-lt:#6FB0FF; --violet-lt:#B48CFF;
+  --display:"Alumni Sans","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --voice:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --bg:#08090F; --fg:#ECEDF3; --muted:rgba(236,237,243,.7); --faint:rgba(236,237,243,.42);
+  --line:rgba(236,237,243,.14); --card:rgba(255,255,255,.045); --card-2:rgba(255,255,255,.08);
+  --g1:#5AA2FF; --g2:#A774FF; --accent:#6FB0FF; --on-accent:#08090F; --wa:#0F766E;
+  --ease:cubic-bezier(.22,.61,.21,1); --gut:max(16px,env(safe-area-inset-left,0px)); --gutr:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+body[data-tone="light"]{
+  --fg:#14151B; --muted:rgba(20,21,27,.74); --faint:rgba(20,21,27,.48);
+  --line:rgba(20,21,27,.14); --card:rgba(20,21,27,.04); --card-2:rgba(20,21,27,.08);
+  --g1:#0170FD; --g2:#7710D1; --accent:#0A5BCB; --on-accent:#ffffff;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.55;margin:0;transition:background-color .9s var(--ease),color .6s var(--ease);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.88;letter-spacing:normal;margin:0;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.grad{background:linear-gradient(100deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:normal;text-transform:uppercase;color:var(--muted)}
+.voice{font-family:var(--voice);font-style:italic;font-weight:400}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+.narrow{max-width:66ch}
+
+/* ---------- top bar ---------- */
+.bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;align-items:center;gap:16px;padding-block:14px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 92%,transparent),color-mix(in srgb,var(--bg) 0%,transparent));transition:background .9s}
+.bar .logo{display:block;height:34px;width:auto}
+.bar .logo-l{display:none}
+body[data-tone="light"] .bar .logo-d{display:none}
+body[data-tone="light"] .bar .logo-l{display:block}
+.where{flex:1;min-width:0;display:flex;align-items:center;gap:12px;justify-content:center;font-size:.85rem;color:var(--muted)}
+.where b{color:var(--fg);font-weight:600}
+.where canvas{width:26px;height:32px}
+.bar-actions{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.5em;border-radius:999px;padding:.72em 1.2em;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line);background:transparent;cursor:pointer;transition:transform .3s var(--ease),background .3s,border-color .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);border-color:var(--fg)}
+.btn-solid{background:linear-gradient(100deg,var(--blue),var(--purple));border-color:transparent;color:#fff}
+.btn-solid:hover{border-color:transparent}
+.btn-wa{background:var(--wa);border-color:transparent;color:#fff}
+.btn-sm{padding:.5em .95em;font-size:.85rem}
+.menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;display:grid;place-items:center}
+.menu-btn span{display:block;width:16px;height:2px;background:var(--fg);box-shadow:0 5px 0 var(--fg),0 -5px 0 var(--fg)}
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--purple));z-index:55}
+@media (max-width:760px){.where span.ch-name,.bar .hide-m{display:none}.where{justify-content:flex-end}.bar .logo{height:28px}}
+
+/* ---------- chapter index overlay ---------- */
+.index{position:fixed;inset:0;z-index:70;background:#08090F;color:#ECEDF3;display:flex;flex-direction:column;overflow:auto;padding-block:calc(env(safe-area-inset-top,0px) + 80px) calc(env(safe-area-inset-bottom,0px) + 40px);padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));clip-path:circle(0% at calc(100% - 42px) 36px);transition:clip-path .7s var(--ease);visibility:hidden}
+.index.open{clip-path:circle(150% at calc(100% - 42px) 36px);visibility:visible}
+.index ol{list-style:none;margin:0 auto;padding:0;max-width:1100px;width:100%;display:grid;gap:2px}
+.index a{display:grid;grid-template-columns:4.5rem 1fr auto;align-items:baseline;gap:16px;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(236,237,243,.12)}
+.index a .n{font-family:var(--display);font-size:1.6rem;color:rgba(236,237,243,.45);font-weight:700}
+.index a .t{font-family:var(--display);font-weight:800;font-size:clamp(2rem,6vw,4rem);line-height:.95;text-transform:uppercase;transition:color .3s,transform .4s var(--ease)}
+.index a .s{font-size:.85rem;color:rgba(236,237,243,.55)}
+.index a:hover .t,.index a[aria-current="page"] .t{background:linear-gradient(100deg,#5AA2FF,#A774FF);-webkit-background-clip:text;background-clip:text;color:transparent;transform:translateX(10px)}
+.index a .s{display:inline-flex;align-items:center;gap:10px}
+.index a .done{height:22px;width:auto;opacity:.3;transition:opacity .3s,transform .4s var(--ease)}
+.index a.seen .done{opacity:1}
+.index a:hover .done{transform:translateX(4px)}
+.index-close{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:max(20px,env(safe-area-inset-right,0px));z-index:71;color:#ECEDF3;border-color:rgba(236,237,243,.3)}
+@media (max-width:600px){.index a{grid-template-columns:2.6rem 1fr}.index a .s{display:none}}
+
+/* ---------- curtain transition ---------- */
+.curtain{position:fixed;inset:0;z-index:65;pointer-events:none;background:linear-gradient(160deg,#0170FD,#7710D1 70%,#3a0a6e);transform:translateY(101%);display:grid;place-items:center}
+.curtain b{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,8rem);color:#fff;text-transform:uppercase;letter-spacing:normal;line-height:.9;text-align:center;padding:0 24px}
+.curtain.go-in{transition:transform .55s cubic-bezier(.7,0,.3,1);transform:translateY(0)}
+.curtain.go-out{transition:transform .6s cubic-bezier(.7,0,.3,1);transform:translateY(-101%)}
+
+/* ---------- pages ---------- */
+.page{position:relative}
+.scene{position:relative;overflow:hidden}
+.layer{position:absolute;will-change:transform;pointer-events:none}
+
+/* chapter hero */
+.ch-hero{min-height:min(92vh,880px);display:flex;align-items:flex-end;padding-block:150px 72px}
+.ch-hero .wrap{position:relative;z-index:3;width:100%}
+.ch-num{font-family:var(--display);font-weight:900;font-size:clamp(14rem,38vw,34rem);line-height:.75;color:transparent;-webkit-text-stroke:1.5px var(--line);right:-2vw;top:8%;user-select:none}
+.ch-title{font-size:clamp(3.6rem,11.5vw,10rem);text-transform:uppercase;max-width:12ch}
+.ch-title .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.04em}
+.ch-title .w > span{display:inline-block}
+.page.entering .ch-title .w > span,.page.entering .p-title .w > span{animation:rise .9s var(--ease) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.ch-lede{font-size:clamp(1.15rem,1.8vw,1.4rem);color:var(--muted);max-width:52ch;margin-top:28px}
+.ch-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:22px;align-items:center}
+.stage-pill{font-size:.78rem;font-weight:700;letter-spacing:normal;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:.35em .9em}
+
+/* guide note */
+.guide{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;max-width:640px}
+.guide img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 18%;filter:grayscale(.2)}
+.guide p{font-family:var(--voice);font-style:italic;font-size:clamp(1.35rem,2.3vw,1.75rem);line-height:1.25}
+.guide small{display:block;margin-top:8px;font-family:var(--body);font-style:normal;font-size:.8rem;letter-spacing:normal;text-transform:uppercase;color:var(--faint)}
+
+/* content blocks */
+.block{padding-block:clamp(64px,10vw,130px)}
+.block + .block{padding-top:0}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px);align-items:start}
+.split > *{min-width:0}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.h2{font-size:clamp(2.6rem,6vw,4.8rem);text-transform:uppercase}
+.h3{font-size:clamp(1.7rem,3vw,2.3rem);text-transform:uppercase}
+.body-copy{color:var(--muted);font-size:1.08rem;max-width:56ch}
+.body-copy + .body-copy{margin-top:14px}
+.stack{display:flex;flex-direction:column;gap:18px}
+.panel{border:1px solid var(--line);border-radius:22px;background:var(--card);padding:clamp(20px,3.4vw,36px);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.example-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;letter-spacing:normal;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:999px;padding:.25em .75em}
+.example-tag[hidden]{display:none}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:.45em 1em;font-size:.95rem;cursor:pointer;transition:background .25s,border-color .25s,transform .25s var(--ease)}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed="true"]{background:linear-gradient(100deg,var(--blue),var(--purple));border-color:transparent;color:#fff}
+.chip.rec{border-style:dashed;border-color:var(--accent)}
+.chip.rec[aria-pressed="true"]{border-style:solid;border-color:transparent}
+
+/* mad-lib sentence form */
+.madlib{font-family:var(--voice);font-size:clamp(1.6rem,3.4vw,2.7rem);line-height:1.4;font-style:normal}
+.madlib input{font:inherit;font-style:italic;color:var(--accent);background:transparent;border:0;border-bottom:1.5px dashed var(--faint);padding:0 .1em;min-width:3ch;max-width:100%;outline:0;transition:border-color .25s}
+.madlib input:focus{border-bottom-color:var(--accent);border-bottom-style:solid}
+.madlib input::placeholder{color:var(--faint);font-style:italic}
+.quote-out{font-family:var(--voice);font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3}
+.quote-out em{color:var(--accent);font-style:italic}
+.repeat-in{display:block;width:100%;margin-top:8px;font:inherit;font-style:italic;color:var(--accent);background:transparent;border:0;border-bottom:1.5px dashed var(--faint);padding:0 .1em;outline:0}
+.repeat-in:focus{border-bottom:1.5px solid var(--accent)}
+.repeat-in::placeholder{color:var(--accent);opacity:.75}
+label.fld{display:flex;flex-direction:column;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.fld textarea,.fld input{font:inherit;font-size:1.02rem;font-weight:400;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.75em .9em;resize:vertical;outline:0}
+.fld textarea:focus,.fld input:focus{border-color:var(--accent)}
+.fld textarea::placeholder,.fld input::placeholder{color:var(--faint)}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.grid-3{grid-template-columns:1fr}}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:700px){.grid-2{grid-template-columns:1fr}}
+
+/* next chapter footer */
+.next{display:block;text-decoration:none;border-top:1px solid var(--line);padding-block:clamp(56px,9vw,110px);position:relative;overflow:hidden}
+.next .eyebrow{display:block;margin-bottom:12px}
+.next .big{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3.4rem,11vw,9.5rem);line-height:.86;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.next .arrow{font-family:var(--body);font-weight:300;font-size:.5em;transition:transform .5s var(--ease)}
+.next:hover .arrow{transform:translateX(16px)}
+.next:hover .big span:first-child{background:linear-gradient(100deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- prologue ---------- */
+.carve{height:330vh;position:relative}
+.carve-stage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:24px;overflow:hidden;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:90px 40px}
+.carve-copy{position:relative;z-index:3;max-width:640px;justify-self:end;width:100%}
+.carve-lines{position:relative;min-height:4.6em;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3rem,7.6vw,7.4rem);line-height:.88}
+.carve-lines p{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease),transform .6s var(--ease);text-wrap:balance}
+.carve-lines p.on{opacity:1;transform:none}
+.carve-sub{margin-top:26px;color:var(--muted);font-size:1.15rem;max-width:44ch}
+.carve-art{position:relative;height:100%;display:grid;place-items:center;min-height:0}
+.carve-art canvas{width:min(520px,100%);aspect-ratio:4/5;max-height:76vh;height:auto}
+.halo{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(1,112,253,.35),rgba(119,16,209,.15) 45%,transparent 70%);filter:blur(10px)}
+.scroll-hint{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);font-size:.75rem;letter-spacing:normal;text-transform:uppercase;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint i{width:1px;height:42px;background:linear-gradient(var(--faint),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.carve-meter{display:flex;gap:6px;margin-top:30px}
+.carve-meter i{height:3px;width:42px;background:var(--line);border-radius:2px;overflow:hidden;position:relative}
+.carve-meter i b{position:absolute;inset:0;background:linear-gradient(90deg,var(--blue),var(--purple));transform-origin:0 50%;transform:scaleX(0)}
+@media (max-width:860px){
+  .carve-stage{grid-template-columns:1fr;grid-template-rows:1fr auto;align-content:center;padding-block:76px 70px}
+  .carve-art{grid-row:1;height:auto}
+  .carve-art canvas{width:min(300px,62vw);max-height:44vh}
+  .carve-copy{justify-self:start}
+  .carve-lines{font-size:clamp(2.4rem,10.5vw,3.6rem);min-height:3.8em}
+  .carve-sub{font-size:1rem}
+}
+
+.thesis{position:relative;overflow:hidden;padding-block:clamp(90px,14vw,180px)}
+.thesis h2{font-size:clamp(3rem,9vw,8rem);text-transform:uppercase;max-width:14ch}
+.thesis .thin{display:block;color:var(--faint)}
+.steps{list-style:none;margin:clamp(40px,7vw,80px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:end;counter-reset:st}
+.step{position:relative;border-top:2px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.step:nth-child(1){margin-top:140px}.step:nth-child(2){margin-top:70px}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-16px;top:-15px;font-size:1.2rem;color:var(--faint);background:var(--bg);padding:0 4px}
+.step-n{font-family:var(--display);font-weight:900;font-size:clamp(4rem,8vw,6.5rem);line-height:.8}
+.step-k{font-size:.75rem;font-weight:700;letter-spacing:normal;text-transform:uppercase;color:var(--accent)}
+.step h3{font-size:clamp(2rem,3.6vw,3rem);text-transform:uppercase}
+.step p{color:var(--muted);font-size:1rem}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:34px}.step:nth-child(n){margin-top:0}.step:not(:last-child)::after{content:"↓";right:auto;left:0;top:auto;bottom:-30px;background:none}.thesis .ring{display:none}}
+.strata{margin-top:clamp(50px,8vw,90px);display:grid;gap:0;border-top:1px solid var(--line)}
+.stratum{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.2fr);gap:24px;align-items:baseline;padding-block:26px;border-bottom:1px solid var(--line)}
+.stratum .alt{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--faint);font-variant-numeric:tabular-nums}
+.stratum h3{font-size:clamp(2rem,4vw,3.2rem);text-transform:uppercase}
+.stratum p{color:var(--muted)}
+@media (max-width:760px){.stratum{grid-template-columns:1fr;gap:8px}}
+
+.map{padding-block:clamp(80px,12vw,150px)}
+.map-list{list-style:none;margin:48px 0 0;padding:0;position:relative}
+.map-list::before{content:"";position:absolute;left:27px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--g1),var(--g2))}
+.map-list li a{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:22px;align-items:center;padding-block:18px;text-decoration:none}
+.map-list .dot{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);font-family:var(--display);font-weight:800;font-size:1.5rem;position:relative;z-index:1;transition:background .4s,border-color .4s}
+.map-list li a:hover .dot{background:linear-gradient(135deg,var(--blue),var(--purple));border-color:transparent;color:#fff}
+.map-list h3{font-size:clamp(1.9rem,4vw,3rem);text-transform:uppercase}
+.map-list p{color:var(--muted);font-size:1rem;margin-top:4px}
+.map-list .go{font-size:1.4rem;color:var(--faint);transition:transform .4s var(--ease),color .3s}
+.map-list li a:hover .go{transform:translateX(8px);color:var(--fg)}
+
+.meet{position:relative;overflow:hidden;padding-block:clamp(80px,12vw,150px)}
+.meet-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,90px);align-items:center}
+.meet-grid > *{min-width:0}
+.portrait{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.portrait img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;will-change:transform}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,9,15,.75))}
+.portrait figcaption{position:absolute;left:20px;bottom:18px;z-index:2;color:#fff;font-size:.85rem;letter-spacing:normal;text-transform:uppercase}
+@media (max-width:860px){.meet-grid{grid-template-columns:1fr}.portrait{max-width:420px}}
+.big-quote{font-family:var(--voice);font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.15;margin-top:22px}
+
+/* ---------- chapter art ---------- */
+.shard{background:linear-gradient(150deg,#3a3e4b,#1b1d25);opacity:.9}
+.shard.g{background:linear-gradient(150deg,var(--blue),var(--purple));opacity:.85}
+.chisel{height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent);transform-origin:center}
+.spot{width:70vw;max-width:900px;aspect-ratio:1/1.1;background:conic-gradient(from 165deg at 50% 0%,transparent 0deg,rgba(111,176,255,.22) 12deg,rgba(180,140,255,.14) 24deg,transparent 30deg);filter:blur(4px)}
+.seats{display:grid;grid-template-columns:repeat(14,1fr);gap:1.4vw;width:110vw}
+.seats i{aspect-ratio:1/1.25;border-radius:40% 40% 8% 8%;background:#1d1830;border:1px solid rgba(180,140,255,.14)}
+.podium{width:180px;height:120px;border-radius:10px 10px 0 0;background:linear-gradient(#2a2148,#130f22);border:1px solid rgba(180,140,255,.25)}
+.column{width:220px;padding:18px;border-radius:6px;background:rgba(236,237,243,.06);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.column i{display:block;height:6px;border-radius:3px;background:rgba(236,237,243,.18)}
+.column i.h{height:16px;width:80%;background:rgba(236,237,243,.32)}
+.column i.s{width:60%}
+.mic{width:120px;height:170px;border-radius:60px 60px 50px 50px;border:2px solid rgba(180,140,255,.5);background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(180,140,255,.25) 9px 10px)}
+.phone{width:190px;aspect-ratio:9/19;border-radius:30px;border:1.5px solid rgba(236,237,243,.25);background:rgba(236,237,243,.04);padding:22px 12px;display:flex;flex-direction:column;gap:10px}
+.phone i{display:block;border-radius:12px;background:rgba(236,237,243,.08);height:70px}
+.phone i.g{background:linear-gradient(135deg,rgba(1,112,253,.6),rgba(119,16,209,.6));height:110px}
+.ring{border-radius:50%;border:1px solid var(--line)}
+.ring.g{border-color:rgba(111,176,255,.4)}
+.sun{width:min(90vw,900px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(1,112,253,.45),rgba(119,16,209,.25) 40%,transparent 68%)}
+.horizon{height:1px;width:100vw;background:var(--line)}
+
+/* ---------- discover ---------- */
+.quiz{display:flex;flex-direction:column;gap:22px}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.qbar{height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.qbar b{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .5s var(--ease)}
+.qtext{font-family:var(--voice);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.2;min-height:2.5em}
+.likert{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.likert button{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:14px 6px;cursor:pointer;font-size:.85rem;line-height:1.2;transition:background .25s,border-color .25s,transform .25s var(--ease)}
+.likert button:hover{border-color:var(--fg);transform:translateY(-2px)}
+.likert button b{display:block;font-family:var(--display);font-size:1.8rem;line-height:1;margin-bottom:4px}
+@media (max-width:520px){.likert button span{display:none}.likert button{padding:12px 4px}}
+.result{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:28px;align-items:center}
+.result > *{min-width:0}
+@media (max-width:640px){.result{grid-template-columns:1fr}.result canvas{display:none}}
+.result canvas{width:180px;aspect-ratio:4/5}
+.arch-name{font-size:clamp(3.4rem,8vw,6.4rem);text-transform:uppercase}
+.arch-sec{color:var(--muted);margin-top:6px}
+.arch-ess{font-family:var(--voice);font-size:1.5rem;line-height:1.25;margin-top:18px}
+.words{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.word{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1;padding:.18em .5em .1em;border-radius:12px;border:1px solid var(--line)}
+.arch-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:700px){.arch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.arch-grid button{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 14px;cursor:pointer;transition:border-color .25s,background .25s}
+.arch-grid button b{display:block;font-family:var(--display);font-size:1.5rem;text-transform:uppercase;line-height:1}
+.arch-grid button span{font-size:.8rem;color:var(--muted)}
+.arch-grid button:hover{border-color:var(--fg)}
+.arch-grid button[aria-pressed="true"]{background:linear-gradient(135deg,rgba(1,112,253,.25),rgba(119,16,209,.25));border-color:var(--accent)}
+.tabs{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:.5em 1.1em;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+
+/* ---------- room ---------- */
+.meter{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter .track{flex:1;height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+.meter .fill{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .4s var(--ease)}
+.meter .mark{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--fg);left:100%}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.checks label{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.checks input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--faint);margin:2px 0 0;display:grid;place-items:center;cursor:pointer}
+.checks input:checked{background:linear-gradient(135deg,var(--blue),var(--purple));border-color:transparent}
+.checks input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.checks span{color:var(--muted)}
+.checks input:checked + span{color:var(--fg)}
+.counter{font-family:var(--display);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ---------- record ---------- */
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.formats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fmt{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card);position:relative}
+.fmt b{font-family:var(--display);font-size:1.6rem;text-transform:uppercase;display:block;line-height:1}
+.fmt span{font-size:.88rem;color:var(--muted)}
+.fmt.best{border-color:var(--accent);background:linear-gradient(135deg,rgba(1,112,253,.16),rgba(119,16,209,.16))}
+.fmt .badge{position:absolute;top:10px;right:12px;font-size:.68rem;font-weight:700;letter-spacing:normal;text-transform:uppercase;color:var(--accent)}
+.fmt:not(.best) .badge{display:none}
+pre.email{white-space:pre-wrap;font-family:var(--body);font-size:1rem;line-height:1.6;margin:0;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;overflow-x:auto}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.toast{font-size:.85rem;color:var(--accent)}
+
+/* ---------- screen ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+.pillar{border-radius:22px;padding:24px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:10px}
+.pillar .k{font-size:.75rem;font-weight:700;letter-spacing:normal;text-transform:uppercase}
+.pillar h3{font-size:clamp(2.2rem,4vw,3.2rem);text-transform:uppercase}
+.pillar p{color:var(--muted);font-size:.98rem}
+.pillar ul{margin:6px 0 0;padding-left:1.1em;color:var(--muted);font-size:.95rem;display:flex;flex-direction:column;gap:4px}
+.p1 .k{color:var(--g1)} .p2 .k{color:var(--g2)} .p3 .k{color:var(--fg)}
+.cal{display:grid;grid-template-columns:72px repeat(7,minmax(0,1fr));gap:6px;font-size:.78rem;font-variant-numeric:tabular-nums;min-width:520px}
+.cal-wrap{overflow-x:auto;padding-bottom:6px}
+.cal .hd{color:var(--faint);text-align:center;font-weight:600;letter-spacing:normal;text-transform:uppercase}
+.cal .wk{color:var(--muted);font-weight:600;align-self:center}
+.cal .day{aspect-ratio:1/.8;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:.72rem;letter-spacing:normal;text-transform:uppercase;padding:2px;text-align:center;line-height:1.05;overflow:hidden}
+.cal .day.d1{background:var(--g1);border-color:transparent;color:#08090F}
+.cal .day.d2{background:var(--g2);border-color:transparent;color:#fff}
+.cal .day.d3{background:var(--fg);border-color:transparent;color:var(--bg)}
+.range{width:100%;accent-color:var(--g2)}
+.pace{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.pace .counter{font-size:2.4rem}
+
+/* ---------- rhythm ---------- */
+.shadow-card{border-radius:26px;padding:clamp(24px,4vw,44px);background:linear-gradient(135deg,rgba(1,112,253,.14),rgba(119,16,209,.2));border:1px solid var(--line)}
+.shadow-card .h3{margin-top:8px}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.board{grid-template-columns:1fr}}
+.lane{border:1px solid var(--line);border-radius:18px;padding:16px;min-height:200px;background:var(--card);display:flex;flex-direction:column;gap:8px}
+.lane h4{margin:0 0 4px;font-family:var(--display);font-size:1.7rem;text-transform:uppercase;line-height:1;display:flex;justify-content:space-between;align-items:baseline}
+.lane h4 small{font-family:var(--body);font-size:.75rem;color:var(--faint);letter-spacing:normal;text-transform:uppercase}
+.lane p.hint{font-size:.85rem;color:var(--muted);margin-bottom:4px}
+.item{display:flex;align-items:center;justify-content:space-between;gap:8px;border-radius:12px;padding:10px 12px;background:var(--card-2);border:1px solid var(--line);font-size:.95rem}
+.item button{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:.85rem;padding:4px 6px;border-radius:8px}
+.item button:hover{color:var(--fg);background:var(--card)}
+.item .lbl{min-width:0;overflow-wrap:anywhere}
+.add-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.add-row input{flex:1;min-width:180px}
+
+/* ---------- plan (light) ---------- */
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:ph}
+@media (max-width:860px){.timeline{grid-template-columns:1fr}}
+.phase{border-top:3px solid;border-image:linear-gradient(90deg,var(--blue),var(--purple)) 1;padding-top:18px}
+.phase .when{font-family:var(--display);font-size:2.6rem;font-weight:800;text-transform:uppercase;line-height:1}
+.card-out{border-radius:28px;background:#0E1020;color:#ECEDF3;padding:clamp(24px,4vw,48px);position:relative;overflow:hidden}
+.card-out::before{content:"";position:absolute;width:520px;aspect-ratio:1;right:-160px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(1,112,253,.55),rgba(119,16,209,.3) 45%,transparent 70%)}
+.card-out > *{position:relative}
+.card-out .eyebrow{color:rgba(236,237,243,.6)}
+.card-out dl{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:14px 28px;margin:26px 0 0}
+.card-out dt{font-size:.75rem;font-weight:700;letter-spacing:normal;text-transform:uppercase;color:rgba(236,237,243,.55);padding-top:.35em}
+.card-out dd{margin:0;font-size:1.05rem;color:#ECEDF3;overflow-wrap:anywhere}
+.card-out dd.big{font-family:var(--display);font-weight:800;font-size:2.4rem;text-transform:uppercase;line-height:1}
+.card-out dd.v{font-family:var(--voice);font-size:1.4rem;line-height:1.3}
+@media (max-width:640px){.card-out dl{grid-template-columns:1fr;gap:4px}.card-out dd{margin-bottom:12px}}
+.missing{margin-top:26px;padding-top:18px;border-top:1px solid rgba(236,237,243,.16);color:rgba(236,237,243,.75);font-size:.95rem}
+.missing b{color:#ECEDF3}
+.missing a{color:#9EC6FF}
+.card-out .btn{color:#ECEDF3;border-color:rgba(236,237,243,.3)}
+.card-out .btn-solid,.card-out .btn-wa{color:#fff;border-color:transparent}
+
+/* ---------- studio ---------- */
+.story{display:grid;grid-template-columns:repeat(5,minmax(240px,1fr));gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+.story article{scroll-snap-align:start;border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--card);display:flex;flex-direction:column;gap:10px}
+.story .n{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1}
+.story h3{font-size:1.9rem;text-transform:uppercase}
+.story p{color:var(--muted);font-size:.98rem}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.stats div{border-top:1px solid var(--line);padding-top:12px}
+.stats b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,5vw,4rem);line-height:1}
+.stats span{color:var(--muted);font-size:.9rem}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.case{border:1px solid var(--line);border-radius:22px;padding:24px;background:var(--card);display:flex;flex-direction:column;gap:10px}
+.case .eyebrow{font-size:.7rem}
+.case h3{font-size:1.8rem;text-transform:uppercase}
+.case p{color:var(--muted);font-size:.98rem}
+.group-band{background:#07080D;color:#ECEDF3;padding-block:clamp(70px,10vw,130px);--line:rgba(236,237,243,.14);--muted:rgba(236,237,243,.68);--fg:#ECEDF3;--bg:#07080D;color-scheme:dark}
+.group-band .eyebrow{color:rgba(236,237,243,.6)}
+.gb-grad{background:linear-gradient(100deg,#5AA2FF,#A774FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gb-copy{color:rgba(236,237,243,.68);margin-top:16px;max-width:56ch}
+.group{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.group a{display:flex;flex-direction:column;gap:18px;text-decoration:none;border:1px solid rgba(236,237,243,.12);border-radius:20px;padding:24px;background:rgba(255,255,255,.03);transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.group a:hover{border-color:rgba(236,237,243,.4);background:rgba(255,255,255,.06);transform:translateY(-3px)}
+.group .lg{height:52px;display:flex;align-items:center}
+.group img{height:40px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
+.group b{display:block;font-size:1.05rem;color:#ECEDF3}
+.group span{font-size:.88rem;color:rgba(236,237,243,.62);line-height:1.4;display:block;margin-top:4px}
+.faq details{border-bottom:1px solid var(--line);padding-block:18px}
+.faq summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:1.7rem;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:16px;line-height:1.05}
+.faq summary::after{content:"+";font-family:var(--body);font-weight:300;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin-top:10px;max-width:70ch}
+.end-cta{text-align:left;padding-block:clamp(80px,12vw,150px)}
+.end-cta h2{font-size:clamp(3.4rem,10vw,8.5rem);text-transform:uppercase;max-width:12ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.fine{font-size:.85rem;color:var(--faint)}
+footer.site{border-top:1px solid var(--line);padding-block:30px calc(30px + env(safe-area-inset-bottom,0px));font-size:.85rem;color:var(--faint)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+
+/* ---------- motion layer ---------- */
+#dust{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+.glow{position:fixed;left:0;top:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;z-index:2;background:radial-gradient(circle,rgba(90,150,255,.14),rgba(150,90,255,.06) 35%,transparent 62%);display:none;will-change:transform}
+@media (pointer:fine){.glow{display:block}}
+body[data-tone="light"] .glow{background:radial-gradient(circle,rgba(1,112,253,.07),rgba(119,16,209,.04) 35%,transparent 62%)}
+.scene{perspective:1400px}
+:root{--glare:rgba(255,255,255,.10)}
+body[data-tone="light"]{--glare:rgba(1,112,253,.09)}
+:is(.pillar,.case,.fmt,.group a,.hs-card,.shadow-card){position:relative;overflow:hidden;transition:transform .3s ease-out,border-color .3s,background .3s;will-change:transform}
+:is(.pillar,.case,.fmt,.group a,.hs-card,.shadow-card)::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),var(--glare),transparent 50%);opacity:0;transition:opacity .35s}
+:is(.pillar,.case,.fmt,.group a,.hs-card,.shadow-card):hover::before{opacity:1}
+.sw{transition:opacity .2s linear}
+.next .big{will-change:transform}
+
+.hstory{position:relative}
+.hs-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(22px,4vh,46px);padding-block:84px 28px}
+.hs-track{display:flex;gap:20px;width:max-content;padding-left:max(24px,calc((100vw - 1200px) / 2 + 16px));padding-right:12vw;will-change:transform}
+.hs-card{flex:0 0 auto;width:min(80vw,440px);height:min(54vh,470px);border-radius:28px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;text-decoration:none;color:inherit}
+.hs-n{position:absolute;top:-.1em;right:.04em;font-family:var(--display);font-weight:900;font-size:clamp(9rem,24vh,16rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--line);will-change:transform;pointer-events:none}
+.hs-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:.38}
+.hs-photo + .hs-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,var(--bg) 92%)}
+.hs-body{position:relative;display:flex;flex-direction:column;gap:10px}
+.hs-card h3{font-size:clamp(2rem,3.4vw,2.8rem);text-transform:uppercase}
+.hs-card p{color:var(--muted);font-size:1rem;max-width:40ch}
+.hs-cta{background:linear-gradient(135deg,#0170FD,#7710D1);border-color:transparent;color:#fff}
+.hs-cta p,.hs-cta .eyebrow{color:rgba(255,255,255,.86)}
+.hs-cta .hs-n{-webkit-text-stroke-color:rgba(255,255,255,.4)}
+.hs-bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.hs-bar b{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));transform-origin:0 50%;transform:scaleX(0)}
+.hstory.static .hs-pin{position:static;height:auto}
+.hstory.static .hs-track{width:auto;overflow-x:auto}
+
+.marquee{overflow:hidden;padding-block:clamp(26px,5vw,56px);border-block:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mq{display:flex;white-space:nowrap;width:max-content;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(4rem,12vw,10rem);line-height:.9;will-change:transform}
+.mq span{padding-right:.32em}
+.mq-mark{height:.78em;width:auto;margin:0 .32em 0 0;align-self:center;flex:none}
+.mq.outline .mq-mark{opacity:.45}
+.mq i{font-style:normal;background:linear-gradient(100deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mq.outline{color:transparent;-webkit-text-stroke:1.5px var(--faint)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .layer{transform:none!important}
+}
+</style>
+</head>
+<body>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+<header class="bar">
+  <a href="#prologue" aria-label="Rise Personal, back to the start">
+    <img class="logo logo-d" src="assets/logo-dark.webp" alt="Rise Personal" width="480" height="144">
+    <img class="logo logo-l" src="assets/logo-light.webp" alt="Rise Personal" width="480" height="144">
+  </a>
+  <div class="where" aria-live="polite"><canvas id="miniSculpt" width="52" height="64" aria-hidden="true"></canvas><span id="whereText"><b>Prologue</b> <span class="ch-name">· The raw stone</span></span></div>
+  <div class="bar-actions">
+    <a class="btn btn-sm btn-wa hide-m" href="https://wa.me/971506832835" target="_blank" rel="noopener">Talk to our team</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open the chapter index" aria-expanded="false" aria-controls="index"><span></span></button>
+  </div>
+</header>
+
+<nav class="index" id="index" aria-label="Chapters">
+  <button class="btn btn-sm index-close" id="menuClose">Close</button>
+  <ol id="indexList"></ol>
+</nav>
+<div class="curtain" id="curtain" aria-hidden="true"><b id="curtainText"></b></div>
+
+<main id="main">
+
+<!-- ======================= PROLOGUE ======================= -->
+<section class="page" id="p-prologue" data-route="prologue">
+  <div class="carve" id="carve">
+    <div class="carve-stage">
+      <div class="carve-copy">
+        <p class="eyebrow">Rise Personal · A journey in seven chapters</p>
+        <div class="carve-lines" id="carveLines">
+          <p class="on">Every reputation starts as <span class="grad">raw stone.</span></p>
+          <p>Most people polish it <span class="grad">online first.</span></p>
+          <p>Shape it in <span class="grad">the room.</span> Then let the world see.</p>
+          <p>Be known in the rooms <span class="grad">that matter.</span></p>
+        </div>
+        <p class="carve-sub">Mohamed El Sawaf was a sculptor before he built reputations. Scroll, and watch the block become a figure. Then walk the same path with your own name.</p>
+        <div class="carve-meter" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+      </div>
+      <div class="carve-art">
+        <div class="halo layer" data-depth="18"></div>
+        <canvas id="heroSculpt" width="1040" height="1300" role="img" aria-label="A block of stone that is carved into a human figure as you scroll"></canvas>
+      </div>
+      <div class="scroll-hint" id="scrollHint">Scroll to carve<i></i></div>
+    </div>
+  </div>
+
+  <section class="thesis scene">
+    <div class="layer ring" data-speed="-.15" style="width:520px;height:520px;right:-140px;top:40px"></div>
+    <div class="layer ring g" data-speed=".12" style="width:300px;height:300px;right:60px;top:220px"></div>
+    <div class="wrap">
+      <p class="eyebrow">The idea behind every chapter</p>
+      <h2 style="margin-top:18px" data-scrub>Online gets you seen. <span class="grad">The room gets you trusted.</span></h2>
+      <p class="body-copy" style="margin-top:22px">Three stages, always in this order. Each one builds on the one before it.</p>
+      <ol class="steps">
+        <li class="step"><span class="step-n grad">1</span><span class="step-k">Start here · where trust is built</span><h3>In the room</h3><p>Boardrooms, panels, investor meetings and introductions. People meet you and trust you first.</p></li>
+        <li class="step"><span class="step-n grad">2</span><span class="step-k">Then · where you get found</span><h3>On the record</h3><p>Podcasts, interviews, op-eds and profiles. Credible mentions that a search, a client or an investor will find.</p></li>
+        <li class="step"><span class="step-n grad">3</span><span class="step-k">Last · where it grows</span><h3>On screen</h3><p>LinkedIn, video and content in your own voice. Online amplifies the reputation you already earned.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq" data-mq="stages" data-dir="1"></div><div class="mq outline" data-mq="stages" data-dir="-1"></div></div>
+
+  <section class="map">
+    <div class="wrap">
+      <p class="eyebrow">The journey</p>
+      <h2 class="h2" style="margin-top:14px;max-width:16ch">Seven chapters from stone <span class="grad">to someone people remember.</span></h2>
+      <p class="body-copy" style="margin-top:18px">Each chapter keeps what you wrote in the one before. By chapter seven, you leave with your archetype, your words, your story and a 90-day plan.</p>
+      <ol class="map-list" id="mapList"></ol>
+    </div>
+  </section>
+
+  <section class="meet scene">
+    <div class="layer" data-speed=".25" style="right:-4vw;top:0;font-family:var(--display);font-weight:900;font-size:clamp(10rem,26vw,24rem);line-height:.8;color:transparent;-webkit-text-stroke:1px var(--line)">SAWAF</div>
+    <div class="wrap meet-grid">
+      <figure class="portrait" style="margin:0"><img src="assets/sawaf.webp" alt="Mohamed El Sawaf, founder of Rise Personal" data-img-speed=".08" width="640" height="800"><figcaption>Mohamed El Sawaf · Founder</figcaption></figure>
+      <div>
+        <p class="eyebrow">Your guide</p>
+        <h2 class="h2" style="margin-top:14px">A sculptor who now shapes how people are seen.</h2>
+        <p class="big-quote" data-scrub>“Shaping something raw until people stop and look. <span class="grad">That is the whole job.</span>”</p>
+        <p class="body-copy" style="margin-top:22px">Sawaf graduated in sculpture, worked as an interior engineer, then moved into marketing and business development with public and private-sector clients. He has been helping people be seen since childhood, long before it had a name. He will leave you a note in every chapter.</p>
+        <div class="actions"><a class="btn btn-solid" href="#discover">Begin chapter 01 →</a><a class="btn" href="#studio">Read his full story</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="hstory" id="hstory">
+    <div class="hs-pin">
+      <div class="wrap"><p class="eyebrow">Sawaf's path · keep scrolling</p><h2 class="h2" style="margin-top:10px">Five turns that became <span class="grad">a method.</span></h2></div>
+      <div class="hs-track" id="hsTrack">
+        <article class="hs-card"><span class="hs-n">01</span><div class="hs-body"><span class="eyebrow">Since childhood</span><h3>Doing it before it had a name</h3><p>He noticed what made a person stand out and helped people be seen for it. It was simply what he loved doing.</p></div></article>
+        <article class="hs-card"><img class="hs-photo" src="assets/sawaf.webp" alt=""><div class="hs-shade"></div><span class="hs-n">02</span><div class="hs-body"><span class="eyebrow">Sculptor and interior engineer</span><h3>Creating from nothing</h3><p>A sculpture graduate who made statues across Egypt. Shaping something raw until people stop and look became the lesson he still uses.</p></div></article>
+        <article class="hs-card"><span class="hs-n">03</span><div class="hs-body"><span class="eyebrow">Marketing and business development</span><h3>How business really moves</h3><p>Public-sector work through Bnsights and large private-sector projects taught him why people buy from people long before they buy from brands.</p></div></article>
+        <article class="hs-card"><span class="hs-n">04</span><div class="hs-body"><span class="eyebrow">Personal branding</span><h3>The pattern had a name</h3><p>Helping people unleash their potential changed their position and their income. He turned the passion into his work.</p></div></article>
+        <article class="hs-card"><span class="hs-n">05</span><div class="hs-body"><span class="eyebrow">A process that works</span><h3>From talent to method</h3><p>Learned from experts, tested with real clients again and again: discovery, a blueprint for voice and values, then message, identity and reach.</p></div></article>
+        <a class="hs-card hs-cta" href="#discover"><span class="hs-n">06</span><div class="hs-body"><span class="eyebrow">Your turn</span><h3>Now carve yours →</h3><p>Seven chapters, about twenty minutes. Start with your archetype.</p></div></a>
+      </div>
+      <div class="wrap"><div class="hs-bar"><b id="hsBar"></b></div></div>
+    </div>
+  </section>
+  <a class="next scene" href="#discover"><div class="wrap"><span class="eyebrow">Chapter 01 · Foundation</span><div class="big" data-xspeed=".6"><span>Find your stone</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 01 DISCOVER ======================= -->
+<section class="page" id="p-discover" data-route="discover" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">01</div>
+    <div class="layer shard" data-speed="-.5" data-depth="30" style="width:120px;height:150px;right:24%;top:18%;clip-path:polygon(20% 0,100% 15%,85% 100%,0 70%)"></div>
+    <div class="layer shard g" data-speed="-.25" data-depth="50" style="width:70px;height:90px;right:12%;top:34%;clip-path:polygon(40% 0,100% 40%,60% 100%,0 55%)"></div>
+    <div class="layer shard" data-speed="-.8" data-depth="20" style="width:200px;height:160px;right:-30px;top:58%;clip-path:polygon(0 20%,70% 0,100% 80%,30% 100%)"></div>
+    <div class="layer shard" data-speed="-.4" data-depth="40" style="width:60px;height:60px;right:38%;top:62%;clip-path:polygon(50% 0,100% 100%,0 80%)"></div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 01</span><span class="eyebrow">Foundation · about 4 minutes</span></div>
+      <h1 class="ch-title" data-split>Find the stone you are made of</h1>
+      <p class="ch-lede">A sculptor never fights the stone. He studies it first. Your archetype is the shape of your brand, and your three words are its grain. Everything you build later has to fit them.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 1 · The snapshot</p>
+        <h2 class="h2">Ten statements. <span class="grad">One archetype.</span></h2>
+        <p class="body-copy">Answer as you are, not as you wish to be seen. The snapshot compares your answers to the twelve archetypes and names your closest match and a secondary one.</p>
+        <p class="body-copy">Already know yours? Pick it directly. Want the full twenty-statement report and a shareable card? Take the <a href="https://gomaak.github.io/risepersonal-v3/brand-dna-report.html" target="_blank" rel="noopener">Brand DNA Report</a>.</p>
+        <div class="guide" style="margin-top:12px"><img src="assets/sawaf.webp" alt="" width="64" height="64"><p>“Your answers stay in your browser. Nothing is sent anywhere until you decide to talk to us.”<small>Sawaf's note</small></p></div>
+      </div>
+      <div class="panel">
+        <div class="quiz-top"><div class="tabs" role="tablist"><button role="tab" id="tabQuiz" aria-selected="true">Take the snapshot</button><button role="tab" id="tabPick" aria-selected="false">I know mine</button></div><span class="fine" id="qCount">1 of 10</span></div>
+        <div id="quizPane" class="quiz" style="margin-top:22px">
+          <div class="qbar"><b id="qBar" style="width:0%"></b></div>
+          <p class="qtext" id="qText"></p>
+          <div class="likert" id="likert"></div>
+          <div style="display:flex;justify-content:space-between;gap:10px"><button class="btn btn-sm" id="qBack" disabled>← Back</button><button class="btn btn-sm" id="qRestart">Start over</button></div>
+        </div>
+        <div id="pickPane" hidden style="margin-top:22px">
+          <p class="body-copy" style="margin-bottom:14px">Tap your primary archetype. Tap a second one to set it as secondary.</p>
+          <div class="arch-grid" id="archGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="panel" style="padding:clamp(24px,5vw,56px)">
+        <div class="result">
+          <div>
+            <span class="example-tag" data-example>Not filled yet · take the snapshot above to reveal yours</span>
+            <p class="eyebrow" style="margin-top:14px">Your archetype</p>
+            <h2 class="arch-name grad" data-out="archName" style="margin-top:6px">The Creator</h2>
+            <p class="arch-sec">Secondary: <b data-out="secName">The Sage</b></p>
+            <p class="arch-ess" data-out="archEss"></p>
+          </div>
+          <canvas id="resultSculpt" width="360" height="450" aria-hidden="true"></canvas>
+        </div>
+        <div style="margin-top:40px;border-top:1px solid var(--line);padding-top:28px">
+          <p class="eyebrow">Step 2 · Your three words</p>
+          <div class="words" id="wordsOut"></div>
+          <p class="body-copy" style="margin-top:18px">Swap any word. Pick exactly three from your archetypes and your strongest traits. Every bio, talk and post you make later should fit them.</p>
+          <div class="chips" id="wordPool" style="margin-top:14px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="marquee" aria-hidden="true"><div class="mq" data-mq="words" data-dir="1"></div><div class="mq outline" data-mq="words" data-dir="-1"></div></div>
+  <a class="next scene" href="#define"><div class="wrap"><span class="eyebrow">Chapter 02 · Define</span><div class="big" data-xspeed=".6"><span>Carve what you stand for</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 02 DEFINE ======================= -->
+<section class="page" id="p-define" data-route="define" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">02</div>
+    <div class="layer chisel" data-speed="-.3" style="width:60vw;right:-10vw;top:30%;transform:rotate(-18deg)"></div>
+    <div class="layer chisel" data-speed="-.55" style="width:40vw;right:5vw;top:44%;transform:rotate(-18deg)"></div>
+    <div class="layer chisel" data-speed="-.15" style="width:70vw;right:-20vw;top:58%;transform:rotate(-18deg)"></div>
+    <div class="layer chisel" data-speed="-.7" style="width:30vw;right:20vw;top:22%;transform:rotate(-18deg)"></div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 02</span><span class="eyebrow">Before you get visible</span></div>
+      <h1 class="ch-title" data-split>Carve what you stand for</h1>
+      <p class="ch-lede">Amplifying an undefined position only adds noise. Decide what you stand for first, then make it visible. Three questions, then one sentence.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 1 · Three questions</p>
+        <h2 class="h2">Write the paragraph <span class="grad">nobody else could.</span></h2>
+        <p class="body-copy">Short answers are fine. Honest ones are better. You will reuse them in every chapter that follows.</p>
+        <div class="guide" style="margin-top:12px"><img src="assets/sawaf.webp" alt="" width="64" height="64"><p>“When I sculpted, the hardest cut was the first one. After it, the stone tells you where to go.”<small>Sawaf's note</small></p></div>
+      </div>
+      <div class="stack">
+        <label class="fld" for="q-know">What do I know better than most people?<textarea id="q-know" rows="2" data-bind="q.know" placeholder="Example: how founders in Egypt can use AI before their competitors do"></textarea></label>
+        <label class="fld" for="q-believe">What do I believe that others in my field don't say?<textarea id="q-believe" rows="2" data-bind="q.believe" placeholder="Example: most brands try to look premium when they should design how they feel"></textarea></label>
+        <label class="fld" for="q-who">Who exactly do I want to trust me?<textarea id="q-who" rows="2" data-bind="q.who" placeholder="Example: investors, founders and boards in Saudi Arabia and Egypt"></textarea></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Step 2 · Your positioning sentence</p>
+      <p class="body-copy" style="margin-top:10px">Fill the blanks right inside the sentence. Keep both halves: the part where you help people see, and the part where you build or deliver.</p>
+      <div class="panel" style="margin-top:24px">
+        <p class="madlib">I help <input id="pos-who" data-bind="pos.who" placeholder="founders in Egypt" aria-label="Who you help"> <input id="pos-what" data-bind="pos.what" placeholder="see where AI is taking their industry" aria-label="What you help them see or do"> in <input id="pos-field" data-bind="pos.field" placeholder="their market" aria-label="Your field">, and I build <input id="pos-build" data-bind="pos.build" placeholder="the tools and strategies to get them there first" aria-label="What you build or deliver">.</p>
+      </div>
+      <div class="grid-3" style="margin-top:20px" id="voiceTips"></div>
+    </div>
+  </section>
+  <a class="next scene" href="#room"><div class="wrap"><span class="eyebrow">Chapter 03 · Stage 1</span><div class="big" data-xspeed=".6"><span>Step into the room</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 03 ROOM ======================= -->
+<section class="page" id="p-room" data-route="room" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">03</div>
+    <div class="layer spot" data-speed="-.2" data-depth="110" style="left:50%;top:-6%;margin-left:-35vw"></div>
+    <div class="layer podium" data-speed="-.35" data-depth="22" style="right:14%;bottom:30%"></div>
+    <div class="layer seats" data-speed="-.6" data-depth="34" style="left:-5vw;bottom:-4%" id="seats"></div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 03 · Stage 1</span><span class="eyebrow">In the room</span></div>
+      <h1 class="ch-title" data-split>Be the person people want to meet</h1>
+      <p class="ch-lede">This is where trust is built: boardrooms, panels, investor meetings and introductions. You will leave this chapter with an intro you can say in thirty seconds and a sentence other people will repeat for you.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Step 1 · Your 30-second introduction</p>
+      <h2 class="h2" style="margin-top:12px;max-width:18ch">Something you made. <span class="grad">Something you learned.</span></h2>
+      <div class="panel" style="margin-top:26px">
+        <p class="madlib">I'm <input id="in-name" data-bind="intro.name" placeholder="your name" aria-label="Your name">. I <input id="in-made" data-bind="intro.made" placeholder="build brand experiences for hospitality groups" aria-label="What you build or do">. What I've learned is that most people get <input id="in-insight" data-bind="intro.insight" placeholder="premium wrong: they make it look expensive instead of feel considered" aria-label="An insight you hold"> wrong.</p>
+        <div class="meter"><span>Spoken length</span><div class="track"><div class="fill" id="introFill" style="width:0%"></div></div><b id="introSec">0 sec</b><span>/ 30</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 2 · The sentence people repeat</p>
+        <h2 class="h2">Your story, <span class="grad">in someone else's mouth.</span></h2>
+        <p class="body-copy">This is the line you want said about you when you are not in the room. Your archetype suggests one. Make it true to you.</p>
+      </div>
+      <div class="panel">
+        <p class="quote-out">“Talk to <em data-out="nameOr">them</em>. <input class="repeat-in" id="in-repeat" data-bind="intro.repeat" aria-label="What people should repeat about you">”</p>
+        <p class="fine" style="margin-top:14px">Then ask three people you trust how they describe you today, and close the gap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 3 · Your rooms</p>
+        <h2 class="h2">Pick five to ten <span class="grad">rooms to be in.</span></h2>
+        <p class="body-copy">Dashed rooms suit your archetype best: <b data-out="showLine"></b></p>
+        <p><span class="counter" id="roomCount">0</span> <span class="fine">rooms chosen · aim for 5 to 10</span></p>
+      </div>
+      <div class="stack">
+        <div class="chips" id="roomChips"></div>
+        <div class="guide" style="margin-top:20px"><img src="assets/sawaf.webp" alt="" width="64" height="64"><p>“People buy from people long before they buy from brands. I learned that in rooms, not on screens.”<small>Sawaf's note</small></p></div>
+      </div>
+    </div>
+  </section>
+  <a class="next scene" href="#record"><div class="wrap"><span class="eyebrow">Chapter 04 · Stage 2</span><div class="big" data-xspeed=".6"><span>Go on the record</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 04 RECORD ======================= -->
+<section class="page" id="p-record" data-route="record" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">04</div>
+    <div class="layer column" data-speed="-.3" data-depth="20" style="right:28%;top:16%;transform:rotate(-6deg)"><i class="h"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div>
+    <div class="layer column" data-speed="-.6" data-depth="36" style="right:6%;top:30%;transform:rotate(5deg)"><i class="h"></i><i></i><i class="s"></i><i></i><i></i><i></i></div>
+    <div class="layer mic" data-speed="-.45" data-depth="44" style="right:20%;top:56%"></div>
+    <div class="layer" data-speed="-.2" style="right:40%;top:60%;font-family:var(--voice);font-size:14rem;line-height:1;color:var(--line)">“</div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 04 · Stage 2</span><span class="eyebrow">On the record</span></div>
+      <h1 class="ch-title" data-split>Be quoted, listed and referenced</h1>
+      <p class="ch-lede">Once the story is clear, put it where a search, a client or an investor will find it: podcasts, interviews, op-eds and profiles. Pitch two or three this quarter with one sharp idea.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 1 · Your formats</p>
+        <h2 class="h2">Choose formats that <span class="grad">let you explain.</span></h2>
+        <p class="body-copy" data-out="proveLine"></p>
+      </div>
+      <div class="formats" id="formats"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Step 2 · One idea worth an episode</p>
+      <h2 class="h2" style="margin-top:12px;max-width:20ch">Hosts book ideas, <span class="grad">not résumés.</span></h2>
+      <div class="panel" style="margin-top:26px">
+        <p class="madlib">Why <input id="pi-aud" data-bind="pitch.aud" placeholder="Egyptian brands" aria-label="Audience or subject"> <input id="pi-belief" data-bind="pitch.belief" placeholder="look premium" aria-label="What they do or believe"> but <input id="pi-truth" data-bind="pitch.truth" placeholder="don't feel premium" aria-label="The truth you see">.</p>
+      </div>
+      <div class="split" style="margin-top:34px">
+        <div class="stack"><p class="eyebrow">Your pitch, drafted</p><p class="body-copy">Swap the host and show names, then send it to two or three shows your target people already listen to. Your positioning sentence from chapter 02 is already in it.</p></div>
+        <div><pre class="email" id="pitchEmail"></pre><div class="copy-row"><button class="btn btn-sm" id="copyPitch">Copy pitch</button><span class="toast" id="pitchToast" aria-live="polite"></span></div></div>
+      </div>
+    </div>
+  </section>
+  <a class="next scene" href="#screen"><div class="wrap"><span class="eyebrow">Chapter 05 · Stage 3</span><div class="big" data-xspeed=".6"><span>Show up on screen</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 05 SCREEN ======================= -->
+<section class="page" id="p-screen" data-route="screen" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">05</div>
+    <div class="layer phone" data-speed="-.35" data-depth="24" style="right:30%;top:14%;transform:rotate(-8deg)"><i class="g"></i><i></i><i></i></div>
+    <div class="layer phone" data-speed="-.7" data-depth="44" style="right:8%;top:26%;transform:rotate(7deg)"><i></i><i class="g"></i><i></i></div>
+    <div class="layer phone" data-speed="-.15" data-depth="12" style="right:48%;top:44%;transform:rotate(3deg) scale(.7)"><i></i><i></i><i class="g"></i></div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 05 · Stage 3</span><span class="eyebrow">On screen</span></div>
+      <h1 class="ch-title" data-split>Show up online as the same person</h1>
+      <p class="ch-lede">Only now do you go heavy online. Your three words become three content pillars, and a steady rhythm beats any burst of daily posts that stops.</p>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true"><div class="mq" data-mq="words" data-dir="1"></div><div class="mq outline" data-mq="words" data-dir="-1"></div></div>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Step 1 · Three pillars from three words</p>
+      <h2 class="h2" style="margin-top:12px;max-width:18ch">Rotate them so your feed <span class="grad">never becomes one note.</span></h2>
+      <div class="pillars" id="pillars" style="margin-top:28px"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Step 2 · Where and how often</p>
+        <h2 class="h2">One or two platforms. <span class="grad">A pace you can keep.</span></h2>
+        <div class="chips" id="platChips"></div>
+        <p class="fine">Choose up to two, where your people already are.</p>
+        <div class="guide" style="margin-top:18px"><img src="assets/sawaf.webp" alt="" width="64" height="64"><p>“One bold hook and plain text. Your ideas should carry the post, not the emojis.”<small>Sawaf's note</small></p></div>
+      </div>
+      <div class="panel">
+        <div class="pace"><div><span class="counter" id="ppwOut">3</span> <span class="fine">posts a week</span></div><b id="paceLbl">Sustainable</b></div>
+        <input class="range" type="range" min="1" max="5" step="1" id="ppw" aria-label="Posts per week" style="margin:14px 0 20px">
+        <div class="cal-wrap"><div class="cal" id="cal"></div></div>
+        <p class="fine" style="margin-top:12px">Four weeks, pillars rotating. Colors match the pillar cards above.</p>
+      </div>
+    </div>
+  </section>
+  <a class="next scene" href="#rhythm"><div class="wrap"><span class="eyebrow">Chapter 06 · Protect it</span><div class="big" data-xspeed=".6"><span>Keep the rhythm</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 06 RHYTHM ======================= -->
+<section class="page" id="p-rhythm" data-route="rhythm" hidden>
+  <header class="ch-hero scene">
+    <div class="layer ch-num" data-speed=".35" data-rot="18">06</div>
+    <div class="layer ring g" data-speed="-.2" data-depth="10" style="width:260px;height:260px;right:16%;top:22%"></div>
+    <div class="layer ring" data-speed="-.35" data-depth="20" style="width:420px;height:420px;right:calc(16% - 80px);top:calc(22% - 80px)"></div>
+    <div class="layer ring" data-speed="-.5" data-depth="30" style="width:620px;height:620px;right:calc(16% - 180px);top:calc(22% - 180px)"></div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 06</span><span class="eyebrow">Consistency and wellbeing</span></div>
+      <h1 class="ch-title" data-split>A brand is a person. Protect it.</h1>
+      <p class="ch-lede">Trust builds through a steady rhythm, and burnout flattens a person into an imitation. Know your shadow, choose what belongs to this year, and set a pace you can keep.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap grid-2">
+      <div class="shadow-card">
+        <p class="eyebrow">Watch your shadow · <span data-out="archName"></span></p>
+        <h3 class="h3" data-out="shadow"></h3>
+        <p class="body-copy" style="margin-top:14px" data-out="work"></p>
+      </div>
+      <div class="shadow-card">
+        <p class="eyebrow">And your second shadow · <span data-out="secName"></span></p>
+        <h3 class="h3" data-out="shadow2"></h3>
+        <p class="body-copy" style="margin-top:14px">Your wellbeing practice: <b data-out="wellness"></b>. Put it in your calendar before the posts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Now · Next · Later</p>
+      <h2 class="h2" style="margin-top:12px;max-width:20ch">Everything fits your vision. <span class="grad">Not everything fits this year.</span></h2>
+      <p class="body-copy" style="margin-top:14px">List what you are working on. Tap an item to move it. Talk about the Later column as a vision, not as current projects, so it adds credibility instead of scattering it.</p>
+      <span class="example-tag" id="projExample" style="margin-top:16px">Example items · replace them with yours</span>
+      <div class="board" id="board" style="margin-top:20px"></div>
+      <form class="add-row" id="addProj"><label class="fld" style="flex:1"><span class="sr" hidden>New item</span><input id="projInput" placeholder="Add something you are working on" aria-label="New item"></label><button class="btn btn-solid" type="submit">Add to Now</button></form>
+      <div class="guide" style="margin-top:44px"><img src="assets/sawaf.webp" alt="" width="64" height="64"><p>“I never did it alone. My partners and I complete the puzzle together. Choose who carries what, so you can keep your pace.”<small>Sawaf's note</small></p></div>
+    </div>
+  </section>
+  <a class="next scene" href="#plan"><div class="wrap"><span class="eyebrow">Chapter 07 · Your plan</span><div class="big" data-xspeed=".6"><span>See your 90 days</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= 07 PLAN (light) ======================= -->
+<section class="page" id="p-plan" data-route="plan" hidden>
+  <header class="ch-hero scene">
+    <div class="layer sun" data-speed="-.3" style="right:-20vw;top:-10%"></div>
+    <div class="layer horizon" data-speed="-.1" style="left:0;top:70%"></div>
+    <div class="layer horizon" data-speed="-.25" style="left:0;top:78%"></div>
+    <div class="layer ch-num" data-speed=".35" data-rot="18">07</div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Chapter 07</span><span class="eyebrow">The figure, finished</span></div>
+      <h1 class="ch-title" data-split>Your next ninety days</h1>
+      <p class="ch-lede">You found your stone, carved your position and chose your rooms, your record and your rhythm. Here is the order to do it in, and the brand card that holds it all.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="card-out" id="brandCard">
+        <p class="eyebrow">Brand card · built on this journey</p>
+        <dl id="cardDl"></dl>
+        <p class="missing" id="missing"></p>
+        <div class="actions">
+          <button class="btn" id="copyCard">Copy my results</button>
+          <a class="btn btn-wa" id="waCard" href="https://wa.me/971506832835" target="_blank" rel="noopener">Send all my results to the team</a>
+          <button class="btn" id="resetAll">Start over</button>
+          <span class="toast" id="cardToast" aria-live="polite"></span>
+        </div>
+        <p class="fine" style="margin-top:14px;color:rgba(236,237,243,.55)">Your answers are saved in this browser as you go, so you can leave and come back. Tapping send opens WhatsApp with every answer written out, and you choose whether to send it.</p>
+      </div>
+    </div>
+  </section>
+  <a class="next scene" href="#studio"><div class="wrap"><span class="eyebrow">Behind the journey</span><div class="big" data-xspeed=".6"><span>Meet the studio</span><span class="arrow">→</span></div></div></a>
+</section>
+
+<!-- ======================= STUDIO (light) ======================= -->
+<section class="page" id="p-studio" data-route="studio" hidden>
+  <header class="ch-hero scene">
+    <div class="layer" data-speed=".3" style="right:-3vw;top:10%;font-family:var(--display);font-weight:900;font-size:clamp(9rem,24vw,22rem);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--line)">STUDIO</div>
+    <div class="wrap">
+      <div class="ch-meta"><span class="stage-pill">Behind the journey</span><span class="eyebrow">Rise Personal · Dubai, working across the GCC, Egypt and Europe</span></div>
+      <h1 class="ch-title" data-split>A team behind every engagement</h1>
+      <p class="ch-lede">You can walk this path alone. Most of our clients walk it with specialists in strategy, content, media and data, backed by a group of companies that share owners, partners and teams.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="meet-grid">
+        <figure class="portrait" style="margin:0"><img src="assets/sawaf.webp" alt="Mohamed El Sawaf" data-img-speed=".08" width="640" height="800"><figcaption>Mohamed El Sawaf</figcaption></figure>
+        <div>
+          <p class="eyebrow">Leadership</p>
+          <h2 class="h2" style="margin-top:12px">Doing it before it had a name.</h2>
+          <p class="body-copy" style="margin-top:16px">Founder of Rise Personal, leading the team and the group behind it. Passion first, then the experts, then a process that has been tried many times and worked.</p>
+          <div class="stats"><div><b class="grad">3 yrs</b><span>of confidential client work</span></div><div><b class="grad">5</b><span>sectors, from startups to healthcare</span></div><div><b class="grad">3</b><span>regions: GCC, Egypt, Europe</span></div></div>
+        </div>
+      </div>
+      <div class="story" style="margin-top:50px" aria-label="Sawaf's story in five steps">
+        <article><span class="n grad">01</span><h3>Since childhood</h3><p>He noticed what made a person stand out and helped them be seen for it. He did not know it was personal branding. It was what he loved doing.</p></article>
+        <article><span class="n grad">02</span><h3>Sculptor and interior engineer</h3><p>A sculpture graduate who made statues across Egypt. Shaping something raw until people stop and look taught him the lesson he uses now.</p></article>
+        <article><span class="n grad">03</span><h3>Marketing and business</h3><p>Public-sector work through Bnsights and large private-sector projects. He learned how deals are made and why people buy from people first.</p></article>
+        <article><span class="n grad">04</span><h3>Personal branding</h3><p>The pattern had a name. Helping people unleash their potential changed their position and their income, so he made it his work.</p></article>
+        <article><span class="n grad">05</span><h3>A process that works</h3><p>He learned from experts and tested it with real clients, again and again: discovery, a blueprint for voice and values, then message, identity and reach.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Work we don't publish</p>
+      <h2 class="h2" style="margin-top:12px;max-width:18ch">Three years of results <span class="grad">with no names on them.</span></h2>
+      <p class="body-copy" style="margin-top:14px">Every engagement starts under an NDA. We share what changed, never who it changed for.</p>
+      <div class="cases" style="margin-top:28px">
+        <article class="case"><span class="eyebrow">Startup founders</span><h3>Unknown to investors, then the face of the company</h3><p>Founders positioned before going to market. Investors judged the founders first, and that fed into how the company was valued.</p></article>
+        <article class="case"><span class="eyebrow">Private-sector company</span><h3>The board became the brand</h3><p>Senior managers respected inside the industry but invisible outside it became the visible faces of the business.</p></article>
+        <article class="case"><span class="eyebrow">Business consulting</span><h3>From a trusted network to a public name</h3><p>Consultants whose work travelled only by introduction are now recognised public figures with far wider networks.</p></article>
+        <article class="case"><span class="eyebrow">Healthcare</span><h3>From word of mouth to reputation</h3><p>A physician's message built around her values and made visible, within the rules her profession sets.</p></article>
+        <article class="case"><span class="eyebrow">Sustainability</span><h3>From no presence to a recognised voice</h3><p>A leader with no public profile. We started with what she stands for, then built her presence on the ground and online.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">The team</p>
+      <div class="grid-2" style="margin-top:18px">
+        <div class="case"><h3>Strategy and positioning</h3><p>Archetype, story and message, built from who you are and where you want to be known.</p></div>
+        <div class="case"><h3>Content and creative</h3><p>Scripts, visuals and video in your voice, written for each platform and its rules.</p></div>
+        <div class="case"><h3>Media and distribution</h3><p>The channels, rhythm and paid reach that put the right people in front of you.</p></div>
+        <div class="case"><h3>Data and technology</h3><p>Measurement, dashboards and digital products, with our technology sister company.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="group-band">
+    <div class="wrap">
+      <p class="eyebrow">Our group</p>
+      <h2 class="h2" style="margin-top:12px;max-width:18ch">Eight companies. <span class="gb-grad">One set of owners and teams.</span></h2>
+      <p class="gb-copy">Apps and marketplaces, consulting, AI and brand, with teams across the UAE, Egypt and Portugal working as one.</p>
+      <div class="group" style="margin-top:34px">
+        <a href="https://drp9-tech.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/drp9tech.webp" alt="" width="200" height="52"></span><div><b>DRP9 Tech</b><span>Apps, platforms and AI agents for founders and large organisations.</span></div></a>
+        <a href="https://wai-s.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/wais.webp" alt="" width="200" height="52"></span><div><b>WAI-S</b><span>A strategic partner for business and individual growth.</span></div></a>
+        <a href="https://bnsights.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/bnsights.webp" alt="" width="200" height="52"></span><div><b>Bnsights</b><span>Innovation, future foresight and government excellence consulting.</span></div></a>
+        <a href="https://uniek.ai" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/uniek.webp" alt="" width="200" height="52"></span><div><b>Uniek AI</b><span>An AI product engine from idea to product.</span></div></a>
+        <a href="https://imolty.ai" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/imolty.webp" alt="" width="200" height="52"></span><div><b>Imolty.ai</b><span>An AI concierge for rental properties in Spain and Portugal.</span></div></a>
+        <a href="https://drp9.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/drp9.webp" alt="" width="200" height="52"></span><div><b>DRP9</b><span>A creator marketplace for fashion and prints.</span></div></a>
+        <a href="https://la7ma.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/la7ma.webp" alt="" width="200" height="52"></span><div><b>La7ma</b><span>An online fresh-meat store in Egypt.</span></div></a>
+        <a href="https://www.wijhattravel.com" target="_blank" rel="noopener"><span class="lg"><img src="assets/g/wijhat.webp" alt="" width="200" height="52"></span><div><b>Wijhat Travel</b><span>Saudi tourism, Umrah, Hajj and business travel.</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap faq">
+      <p class="eyebrow">Before you message us</p>
+      <div style="margin-top:14px">
+        <details><summary>What does Rise Personal do?</summary><p>We position founders, executives and experts so the right people know and trust them. We start in the room, with speaking, introductions and a clear story, then put it on the record and online.</p></details>
+        <details><summary>Do you work in Saudi Arabia and Egypt?</summary><p>Yes. We work with leaders, founders and teams in Saudi Arabia, Egypt and across the GCC, and with clients in Europe. We work remotely from Dubai and do not operate an office in Saudi Arabia or Egypt.</p></details>
+        <details><summary>What is human-powered marketing?</summary><p>Marketing built on people rather than logos or products, because people trust people. The most reliable brand a company has is the visible reputation of the people who lead it.</p></details>
+        <details><summary>Is my information safe?</summary><p>We sign an NDA before we hear the brief, and we never name a client, quote them or show their work without their written approval. Everything you typed on this journey stays in your browser.</p></details>
+        <details><summary>How do I start?</summary><p>Message us on WhatsApp with your brand card from chapter 07. We share scope and pricing after a first conversation about your goals.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="end-cta">
+    <div class="wrap">
+      <h2>Tell us where you want <span class="grad">to be known.</span></h2>
+      <p class="body-copy" style="margin-top:18px">One message is enough to start. Our team replies, and we share scope after a first conversation.</p>
+      <div class="actions"><a class="btn btn-wa" href="https://wa.me/971506832835" target="_blank" rel="noopener">Start a WhatsApp chat</a><a class="btn" href="#prologue">Walk the journey again</a></div>
+      <p class="fine" style="margin-top:16px">WhatsApp: <span style="user-select:all">+971 50 683 2835</span></p>
+    </div>
+  </section>
+  <footer class="site"><div class="wrap"><span>© 2026 Rise Personal. Client work is confidential.</span><span>Personal branding for founders, executives and experts · Saudi Arabia · Egypt · GCC</span></div></footer>
+</section>
+
+</main>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var reduced=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var WA="https://wa.me/971506832835";
+
+/* ---------------- data ---------------- */
+var CHAPTERS=[
+ {id:"prologue",n:"",t:"Prologue",s:"The raw stone",bg:"#08090F",tone:"dark"},
+ {id:"discover",n:"01",t:"Find your stone",s:"Archetype and three words",bg:"#0A0C19",tone:"dark",d:"Ten statements name your archetype. Then choose the three words every post and talk must fit."},
+ {id:"define",n:"02",t:"Carve your stand",s:"Positioning sentence",bg:"#0D0D22",tone:"dark",d:"Three honest questions, then one sentence that says who you help and what you build."},
+ {id:"room",n:"03",t:"In the room",s:"Stage 1",bg:"#110C21",tone:"dark",d:"A 30-second intro, the sentence people repeat about you, and the rooms to be in."},
+ {id:"record",n:"04",t:"On the record",s:"Stage 2",bg:"#130F2A",tone:"dark",d:"The formats that suit you and one idea a podcast host will want to book."},
+ {id:"screen",n:"05",t:"On screen",s:"Stage 3",bg:"#16123A",tone:"dark",d:"Three content pillars from your three words, and a weekly rhythm you can keep."},
+ {id:"rhythm",n:"06",t:"Keep the rhythm",s:"Shadows and focus",bg:"#1D1946",tone:"dark",d:"Your archetype's shadow, your wellbeing practice, and what belongs to this year."},
+ {id:"plan",n:"07",t:"Your 90 days",s:"Plan and brand card",bg:"#E6E6EA",tone:"light",d:"The order to do it in, and a brand card you can take to our team."},
+ {id:"studio",n:"",t:"The studio",s:"Sawaf and the team",bg:"#EEEEF2",tone:"light"}
+];
+var A={
+ sage:{name:"The Sage",essence:"The thought leader and teacher: people come to you to understand what things mean.",work:"Share your ideas publicly. The world needs your thinking out loud.",wellness:"Deep work and meditation",words:["Insightful","Grounded","Wise"],profile:{O:80,C:75,E:30,A:55,N:45},keys:["O","C"],sound:"Calm and precise. Happy to say: it depends, and here is why.",show:"talks, panels, long-form posts, small briefings",prove:"A framework with your name on it and a case explained step by step.",shadow:"Overthinking, or sounding distant and lecturing.",repeat:"They make hard things clear.",rooms:["Panels","Workshops","Roundtables","University lectures"],fmts:["Long-form podcast","Op-ed","Essay or newsletter"]},
+ creator:{name:"The Creator",essence:"The artist and builder: you exist to make things that didn't exist before.",work:"Finish and ship. Done is the masterpiece your ideas are waiting for.",wellness:"Flow states",words:["Original","Visionary","Crafted"],profile:{O:95,C:50,E:45,A:78,N:55},keys:["O","A"],sound:"Original and unpolished on purpose. Show the making, not just the result.",show:"portfolios, behind-the-scenes posts, launches, studio visits",prove:"Finished work, shown regularly, with the story of how it was made.",shadow:"Starting many projects and finishing few, or polishing forever.",repeat:"They see things early, and they actually build them.",rooms:["Workshops","Trade expos","Panels","Roundtables"],fmts:["Profile feature","Long-form podcast","Essay or newsletter"]},
+ ruler:{name:"The Ruler",essence:"The executive authority: composed command is your natural register.",work:"Lead generously. Share the stage, and the crown grows.",wellness:"Energy management",words:["Commanding","Composed","Sovereign"],profile:{O:55,C:88,E:82,A:45,N:20},keys:["C","E","N"],sound:"Composed and decisive. Short sentences, clear calls.",show:"boardrooms, keynotes, long-term partnerships, curated introductions",prove:"Outcomes you led and the people you grew along the way.",shadow:"Holding the stage alone, so the people around you stay invisible.",repeat:"They make the decision everyone else is avoiding.",rooms:["Boardrooms","Investor meetings","Conference stages","Private introductions"],fmts:["Interview","Profile feature","Op-ed"]},
+ hero:{name:"The Hero",essence:"The achiever: proof, momentum and results follow you.",work:"Keep a sustainable pace. A long campaign beats a brilliant sprint.",wellness:"Discipline and fitness",words:["Relentless","Bold","Proven"],profile:{O:55,C:85,E:78,A:50,N:75},keys:["C","E","N"],sound:"Direct and energetic. Say what you did and what happened next.",show:"industry events, awards, case-study talks, short punchy updates",prove:"Numbers, timelines and before-and-after results you can show.",shadow:"Running a sprint every day until the engine burns out.",repeat:"They get it done, and they have the results to show it.",rooms:["Conference stages","Award juries","Industry dinners","Panels"],fmts:["Interview","Recorded panel","Profile feature"]},
+ explorer:{name:"The Explorer",essence:"The founder-nomad: new territory is your natural habitat.",work:"Bring the journey home so people can follow it.",wellness:"Nature and movement",words:["Free","Curious","Untamed"],profile:{O:85,C:45,E:55,A:25,N:50},keys:["O","A"],sound:"Curious and open. First-person stories with a clear lesson.",show:"field notes, travel-led content, community events, talks",prove:"A body of journeys with one lesson each, on a steady schedule.",shadow:"Always on the next journey, never bringing the story home.",repeat:"They've already been where you're going.",rooms:["Community meetups","Conference stages","Workshops","Trade expos"],fmts:["Long-form podcast","Essay or newsletter","Profile feature"]},
+ magician:{name:"The Magician",essence:"The innovator: you see around corners and make the impossible feel inevitable.",work:"Focus over novelty. Choose the one trick and master it.",wellness:"Creation rituals",words:["Transformative","Magnetic","Visionary"],profile:{O:95,C:50,E:80,A:45,N:50},keys:["O","E"],sound:"Visionary but concrete. Name the shift, then show it.",show:"demos, workshops, keynotes, first-of-its-kind launches",prove:"One signature transformation, repeated with fresh proof each time.",shadow:"Ten brilliant ideas and no signature one.",repeat:"They make the impossible look obvious.",rooms:["Conference stages","Workshops","Trade expos","Investor meetings"],fmts:["Recorded panel","Long-form podcast","Op-ed"]},
+ lover:{name:"The Lover",essence:"The aesthetic and lifestyle authority: beauty is how you make people feel valued.",work:"Say no beautifully, so every yes means more.",wellness:"Self-care as strategy",words:["Magnetic","Refined","Warm"],profile:{O:82,C:50,E:75,A:85,N:45},keys:["O","E","A"],sound:"Warm, refined and selective. Quality over volume.",show:"intimate events, curated content, brand collaborations",prove:"Taste: a consistent look, a short list of partners, careful detail.",shadow:"Saying yes to everything, so nothing feels selective.",repeat:"Everything they touch feels considered.",rooms:["Industry dinners","Private introductions","Roundtables","Trade expos"],fmts:["Profile feature","Interview","Essay or newsletter"]},
+ jester:{name:"The Jester",essence:"The entertainer: light is your tool and joy your medium.",work:"Add depth to the humour. Let them laugh, then let them think.",wellness:"Play and joy",words:["Electric","Witty","Alive"],profile:{O:65,C:45,E:88,A:55,N:25},keys:["E","N"],sound:"Light and quick. A joke, then a point that sticks.",show:"short video, live events, panels, podcasts, social",prove:"Serious results delivered by someone people already enjoy.",shadow:"All lightness and no depth, so people can't trust you with the serious thing.",repeat:"They make it fun, and it still works.",rooms:["Panels","Conference stages","Community meetups","Industry dinners"],fmts:["Long-form podcast","Recorded panel","Interview"]},
+ everyman:{name:"The Everyman",essence:"The relatable expert: you lead by being real, and real is rare.",work:"Own your plain-spoken clarity. It is the differentiator.",wellness:"Rhythm and balance",words:["Real","Trusted","Grounded"],profile:{O:50,C:55,E:50,A:85,N:45},keys:["A"],sound:"Plain-spoken and friendly. The way you would explain it to a friend.",show:"Q&As, community talks, simple posts, one-to-one conversations",prove:"Honest stories, clear steps and real client voices.",shadow:"Copying the polished voice everyone else uses.",repeat:"They'll tell you straight.",rooms:["Community meetups","Workshops","Roundtables","Private introductions"],fmts:["Long-form podcast","Interview","Essay or newsletter"]},
+ caregiver:{name:"The Caregiver",essence:"The coach and healer: people feel safer having you in their corner.",work:"Set boundaries and be visible. You can't pour from a brand that hides.",wellness:"Rest and boundaries",words:["Caring","Wise","Safe"],profile:{O:55,C:60,E:50,A:92,N:70},keys:["A","N"],sound:"Warm, steady and specific. Name what the other person is feeling.",show:"workshops, small-group sessions, newsletters, mentoring",prove:"Stories of people you helped, told with their permission.",shadow:"Carrying everyone else and hiding yourself.",repeat:"You'll feel safer with them in your corner.",rooms:["Workshops","Roundtables","Community meetups","University lectures"],fmts:["Essay or newsletter","Long-form podcast","Interview"]},
+ innocent:{name:"The Innocent",essence:"The optimistic minimalist: clarity and honesty are your aesthetic.",work:"Use a bolder voice. Your calm deserves volume, too.",wellness:"Mindfulness and simplicity",words:["Pure","Honest","Calm"],profile:{O:60,C:55,E:45,A:65,N:15},keys:["N","O"],sound:"Simple and sincere. Fewer words, said with confidence.",show:"clean visual posts, short essays, quiet and focused events",prove:"Consistency: the same honest voice, week after week.",shadow:"Keeping your voice so quiet that it goes unheard.",repeat:"They'll give you the simple, honest answer.",rooms:["Roundtables","Workshops","Private introductions","Community meetups"],fmts:["Essay or newsletter","Profile feature","Long-form podcast"]},
+ outlaw:{name:"The Outlaw",essence:"The disruptor: you break the pattern so something better can take its place.",work:"Build a coalition. Even revolutions need allies.",wellness:"Channelling intensity",words:["Fearless","Unfiltered","Disruptive"],profile:{O:90,C:45,E:80,A:20,N:55},keys:["O","E","A"],sound:"Bold and unfiltered, aimed at a target, not at people.",show:"manifestos, debates, disruptive launches, community movements",prove:"A clear stand, and the allies who joined it.",shadow:"Fighting everything at once, alone.",repeat:"They'll say what everyone else is afraid to say.",rooms:["Conference stages","Panels","Community meetups","Award juries"],fmts:["Op-ed","Recorded panel","Long-form podcast"]}
+};
+var NONE={name:"Your archetype",essence:"Take the snapshot above, or pick yours, and this card fills in with what you are made of.",work:"Your antidote appears once you know your archetype.",wellness:"Revealed with your archetype in chapter 01",words:[],sound:"Revealed by your archetype in chapter 01.",show:"the rooms your archetype suits (take the snapshot in chapter 01 to see them)",prove:"Your archetype decides this. Take the snapshot in chapter 01.",shadow:"Find your archetype in chapter 01 to see your shadow.",repeat:"what you want people to say about you",rooms:[],fmts:[]};
+var NONE2={name:"Your second archetype",shadow:"Your second shadow appears with your snapshot.",words:[]};
+function ARC(){return S.arch?A[S.arch]:NONE}
+function SEC(){return S.sec?A[S.sec]:NONE2}
+function W(i){var d=["Word one","Word two","Word three"];return S.words[i]||d[i]}
+function WS(){return [W(0),W(1),W(2)]}
+var ORDER=["sage","creator","ruler","hero","explorer","magician","lover","jester","everyman","caregiver","innocent","outlaw"];
+var QS=[
+ {f:"O",r:1,t:"I have a vivid imagination and can lose myself in new ideas."},
+ {f:"C",r:1,t:"I follow through on my plans, even after the first excitement fades."},
+ {f:"E",r:1,t:"I feel energized after time in a lively group of people."},
+ {f:"A",r:1,t:"I naturally tune in to how the people around me are feeling."},
+ {f:"N",r:0,t:"I stay calm and clear-headed under pressure."},
+ {f:"O",r:0,t:"I prefer familiar routines over experimenting with new approaches."},
+ {f:"C",r:0,t:"I often leave important things until the last minute."},
+ {f:"E",r:0,t:"I would rather observe quietly than take the stage."},
+ {f:"A",r:0,t:"I enjoy a sharp debate, even when it makes waves."},
+ {f:"N",r:1,t:"I replay worries long after the moment has passed."}
+];
+var LIK=["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"];
+var POOL={O:["Visionary","Curious","Original"],C:["Proven","Precise","Dependable"],E:["Magnetic","Alive","Dynamic"],A:["Trusted","Warm","Generous"],N:["Attuned","Driven","Instinctive"]};
+var ROOMS=["Boardrooms","Investor meetings","Conference stages","Panels","Workshops","Roundtables","Industry dinners","Community meetups","Award juries","University lectures","Trade expos","Private introductions"];
+var FMTS=[["Long-form podcast","Room to explain your thinking"],["Op-ed","Your argument, under your name"],["Interview","Your story, in a journalist's frame"],["Profile feature","How people see you, in print"],["Recorded panel","You beside the names of your field"],["Essay or newsletter","Your own record, on your schedule"]];
+var PLATS=["LinkedIn","Instagram","X","YouTube","TikTok","Newsletter"];
+var PILLARS=[
+ {k:"Point of view",d:"Where your field is heading, what you believe, and what you are building and why.",ideas:["A prediction for your industry","What you're building and the reason behind it","A belief from chapter 02, argued"]},
+ {k:"Proof",d:"Lessons, frameworks and breakdowns. What experience has taught you.",ideas:["“Why it works”: a brand or decision, decoded","A framework with your name on it","A mistake and what it taught you"]},
+ {k:"Process",d:"Questions you are exploring and what you are learning, shown in public.",ideas:["Notes from a course or event","A question you can't answer yet","Behind the scenes of a decision"]}
+];
+
+/* ---------------- state ---------------- */
+var DEFAULT={arch:null,sec:null,words:[],example:true,answers:[],q:{know:"",believe:"",who:""},pos:{who:"",what:"",field:"",build:""},intro:{name:"",made:"",insight:"",repeat:""},rooms:[],pitch:{aud:"",belief:"",truth:""},plats:[],ppw:3,projects:[["Personal brand","now"],["Main business","now"],["New product launch","next"],["Community events","next"],["A dream project","later"]],projExample:true,checks:{},seen:[]};
+var S;
+try{S=JSON.parse(localStorage.getItem("rp-journey-v2")||"null")}catch(e){S=null}
+if(!S||typeof S!=="object")S=JSON.parse(JSON.stringify(DEFAULT));
+Object.keys(DEFAULT).forEach(function(k){if(S[k]===undefined)S[k]=JSON.parse(JSON.stringify(DEFAULT[k]))});
+var saveT;function save(){clearTimeout(saveT);saveT=setTimeout(function(){try{localStorage.setItem("rp-journey-v2",JSON.stringify(S))}catch(e){}},250)}
+function get(path){return path.split(".").reduce(function(o,k){return o?o[k]:""},S)||""}
+function set(path,v){var p=path.split("."),o=S;for(var i=0;i<p.length-1;i++)o=o[p[i]];o[p[p.length-1]]=v}
+function or(v,ph){return v&&v.trim()?v.trim():ph}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+/* ---------------- sculpture ---------------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function inBust(u,v){
+  var hx=(u-.5)/.15,hy=(v-.27)/.185;if(hx*hx+hy*hy<1)return true;
+  if(Math.abs(u-.5)<.072&&v>.38&&v<.64)return true;
+  if(v>.6&&Math.abs(u-.5)<Math.min(.47,.1+Math.sqrt(v-.6)*.92))return true;
+  return false;
+}
+function Sculpt(canvas,cols,rows,seed){
+  var R=rng(seed),P=[],T=[],i,j;
+  for(j=0;j<=rows;j++)for(i=0;i<=cols;i++){var ju=(i>0&&i<cols)?(R()-.5)*.8:0,jv=(j>0&&j<rows)?(R()-.5)*.8:0;P.push([(i+ju)/cols,(j+jv)/rows])}
+  function pt(i,j){return P[j*(cols+1)+i]}
+  function add(a,b,c){var cx=(a[0]+b[0]+c[0])/3,cy=(a[1]+b[1]+c[1])/3,inside=inBust(cx,cy);var dx=cx-.5,dy=(cy-.55)*.85,dist=Math.sqrt(dx*dx+dy*dy);
+    T.push({p:[a,b,c],cx:cx,cy:cy,inside:inside,t:inside?2:Math.max(.04,Math.min(.92,.95-dist*1.25+(R()-.5)*.3)),sh:R(),rot:(R()-.5)*2.4,dx:(R()-.5)*.25})}
+  for(j=0;j<rows;j++)for(i=0;i<cols;i++){var a=pt(i,j),b=pt(i+1,j),c=pt(i+1,j+1),d=pt(i,j+1);if(R()>.5){add(a,b,c);add(a,c,d)}else{add(a,b,d);add(b,c,d)}}
+  var ctx=canvas.getContext("2d");
+  this.draw=function(p,light){
+    var w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);
+    var reveal=Math.max(0,Math.min(1,(p-.55)/.4));
+    for(var k=0;k<T.length;k++){var t=T[k],a=1,off=0,rot=0,ox=0;
+      if(!t.inside){if(p>t.t){var q=(p-t.t)/.14;if(q>=1)continue;a=1-q;off=q*q*.35;rot=q*t.rot;ox=q*t.dx}}
+      var s=t.sh,L=light?(62+s*16):(16+s*15),stone=light?[L*2.2+40,L*2.2+42,L*2.2+50]:[L*2.4,L*2.5,L*2.9];
+      var col=stone;
+      if(t.inside){var g=t.cy,f=.72+s*.5,blue=[1,112,253],pur=[119,16,209],gc=[(blue[0]+(pur[0]-blue[0])*g)*f+20*s,(blue[1]+(pur[1]-blue[1])*g)*f+18*s,(blue[2]+(pur[2]-blue[2])*g)*f];col=[stone[0]+(gc[0]-stone[0])*reveal,stone[1]+(gc[1]-stone[1])*reveal,stone[2]+(gc[2]-stone[2])*reveal]}
+      var c=Math.cos(rot),sn=Math.sin(rot);
+      ctx.beginPath();
+      for(var m=0;m<3;m++){var x=t.p[m][0]-t.cx,y=t.p[m][1]-t.cy,X=(x*c-y*sn+t.cx+ox)*w,Y=(x*sn+y*c+t.cy+off)*h;if(m===0)ctx.moveTo(X,Y);else ctx.lineTo(X,Y)}
+      ctx.closePath();
+      var rgb="rgba("+Math.round(Math.min(255,col[0]))+","+Math.round(Math.min(255,col[1]))+","+Math.round(Math.min(255,col[2]))+","+a.toFixed(3)+")";
+      ctx.fillStyle=rgb;ctx.fill();ctx.strokeStyle=rgb;ctx.lineWidth=1;ctx.stroke();
+    }
+  };
+}
+var hero=new Sculpt($("#heroSculpt"),18,24,7);
+var mini=new Sculpt($("#miniSculpt"),9,12,7);
+var resS=new Sculpt($("#resultSculpt"),12,16,11);
+
+/* ---------------- router ---------------- */
+var current=null,busy=false;
+function chapterIdx(id){for(var i=0;i<CHAPTERS.length;i++)if(CHAPTERS[i].id===id)return i;return 0}
+function journeyProgress(){var c=0;["discover","define","room","record","screen","rhythm","plan"].forEach(function(id){if(S.seen.indexOf(id)>-1)c++});return c/7}
+function paintMini(){mini.draw(.08+journeyProgress()*.92,document.body.dataset.tone==="light")}
+function applyChapter(id){
+  var ch=CHAPTERS[chapterIdx(id)];
+  $$(".page").forEach(function(p){p.hidden=p.dataset.route!==id;p.classList.remove("entering")});
+  var pg=$("#p-"+id);pg.classList.add("entering");
+  document.body.style.setProperty("--bg",ch.bg);document.body.dataset.tone=ch.tone;
+  $("#whereText").innerHTML=ch.n?"<b>Chapter "+ch.n+"</b> <span class=\"ch-name\">· "+ch.t+"</span>":"<b>"+ch.t+"</b> <span class=\"ch-name\">· "+ch.s+"</span>";
+  if(S.seen.indexOf(id)<0){S.seen.push(id);save()}
+  buildIndex();paintMini();
+  window.scrollTo(0,0);current=id;lastP=-1;
+  if(id==="plan")renderPlan();
+  cache(pg);
+  var h=pg.querySelector("h1,h2");document.title=(ch.n?"Chapter "+ch.n+" · ":"")+ch.t+" · Rise Personal";
+}
+function go(id,instant){
+  if(chapterIdx(id)===0&&id!=="prologue")id="prologue";
+  if(id===current||busy)return;
+  closeIndex();
+  if(instant||reduced||current===null){applyChapter(id);return}
+  busy=true;var c=$("#curtain"),ch=CHAPTERS[chapterIdx(id)];
+  $("#curtainText").textContent=ch.n?ch.n+" · "+ch.t:ch.t;
+  c.className="curtain go-in";
+  setTimeout(function(){applyChapter(id);c.className="curtain go-out";setTimeout(function(){c.className="curtain";busy=false},620)},600);
+}
+function route(){var h=(location.hash||"").replace("#","");var ok=CHAPTERS.some(function(c){return c.id===h});go(ok?h:"prologue")}
+window.addEventListener("hashchange",route);
+
+/* index overlay + map */
+function buildIndex(){
+  $("#indexList").innerHTML=CHAPTERS.map(function(c){return '<li><a href="#'+c.id+'" class="'+(S.seen.indexOf(c.id)>-1?"seen":"")+'"'+(c.id===current?' aria-current="page"':"")+'><span class="n">'+(c.n||"·")+'</span><span class="t">'+c.t+'</span><span class="s">'+c.s+' <img class="done" src="assets/mark.webp" alt=""></span></a></li>'}).join("");
+}
+$("#mapList").innerHTML=CHAPTERS.filter(function(c){return c.n}).map(function(c){return '<li><a href="#'+c.id+'"><span class="dot">'+c.n+'</span><div><h3>'+c.t+'</h3><p>'+c.d+'</p></div><span class="go">→</span></a></li>'}).join("");
+function openIndex(){var x=$("#index");x.classList.add("open");$("#menuBtn").setAttribute("aria-expanded","true");setTimeout(function(){var a=$("#indexList a");a&&a.focus()},300)}
+function closeIndex(){var x=$("#index");if(!x.classList.contains("open"))return;x.classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false")}
+$("#menuBtn").addEventListener("click",openIndex);$("#menuClose").addEventListener("click",closeIndex);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeIndex()});
+
+/* split titles into words for the entrance */
+$$("[data-split]").forEach(function(el){var i=0;el.innerHTML=el.textContent.trim().split(/\s+/).map(function(w){return '<span class="w"><span style="--i:'+(i++)+'">'+esc(w)+'</span></span>'}).join(" ")});
+
+/* ---------------- motion engine ---------------- */
+var fine=window.matchMedia&&matchMedia("(pointer: fine)").matches;
+var TILT=".pillar,.case,.fmt,.group a,.hs-card,.shadow-card",MAG=".btn-solid,.btn-wa,.menu-btn";
+var mx=0,my=0,tmx=0,tmy=0,gx=innerWidth/2,gy=innerHeight/2,tgx=gx,tgy=gy,sY=scrollY,lastY=scrollY,vel=0,t0=performance.now();
+var C={layers:[],imgs:[],scrubs:[],mq:[],hero:null,heroWrap:null,hs:null,track:null,hsN:[]};
+function clamp(v,a,b){return Math.max(a===undefined?0:a,Math.min(b===undefined?1:b,v))}
+window.addEventListener("pointermove",function(e){
+  tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5;tgx=e.clientX;tgy=e.clientY;
+  if(!fine||reduced||!e.target.closest)return;
+  var t=e.target.closest(TILT);
+  if(t){var r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    t.style.transform="perspective(900px) rotateX("+((.5-py)*8).toFixed(2)+"deg) rotateY("+((px-.5)*10).toFixed(2)+"deg)";
+    t.style.setProperty("--mx",(px*100).toFixed(1)+"%");t.style.setProperty("--my",(py*100).toFixed(1)+"%")}
+  var m=e.target.closest(MAG);
+  if(m){var q=m.getBoundingClientRect();m.style.transform="translate("+((e.clientX-q.left-q.width/2)*.25).toFixed(1)+"px,"+((e.clientY-q.top-q.height/2)*.35).toFixed(1)+"px)"}
+},{passive:true});
+document.addEventListener("pointerout",function(e){if(!e.target.closest)return;var t=e.target.closest(TILT+","+MAG);if(t&&!(e.relatedTarget&&t.contains(e.relatedTarget)))t.style.transform=""},{passive:true});
+window.addEventListener("resize",function(){sizeDust();sizeHS()});
+
+function splitWords(el){var out=[];(function walk(node,grad){Array.prototype.slice.call(node.childNodes).forEach(function(n){
+  if(n.nodeType===3){var frag=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(part){if(!part)return;if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return}var sp=document.createElement("span");sp.className="sw"+(grad?" grad":"");sp.textContent=part;frag.appendChild(sp);out.push(sp)});node.replaceChild(frag,n)}
+  else if(n.nodeType===1){var g=grad||n.classList.contains("grad");n.classList.remove("grad");walk(n,g)}})})(el,false);return out}
+$$("[data-scrub]").forEach(function(el){el._words=splitWords(el)});
+
+function fillMq(){
+  var a=ARC();
+  $$("[data-mq]").forEach(function(el){
+    var items=el.dataset.mq==="stages"?["In the room","On the record","On screen"]:S.arch?WS().concat([a.name.replace("The ","")]):["Your three words","Your archetype","Your story"];
+    var chunk=items.map(function(w){return "<span>"+esc(w)+"</span><img class=\"mq-mark\" src=\"assets/mark.webp\" alt=\"\">"}).join("");
+    el.innerHTML=chunk+chunk+chunk+chunk+chunk+chunk;
+  });
+}
+function cache(pg){
+  C.layers=$$("[data-speed],[data-depth],[data-xspeed]",pg).map(function(el){
+    if(el.dataset.base===undefined)el.dataset.base=el.style.transform||"";
+    return {el:el,sc:el.closest(".scene")||el.parentElement,sp:+el.dataset.speed||0,dp:+el.dataset.depth||0,xs:+el.dataset.xspeed||0,rot:+el.dataset.rot||0,base:el.dataset.base}});
+  C.imgs=$$("[data-img-speed]",pg);
+  C.scrubs=$$("[data-scrub]",pg);C.scrubs.forEach(function(s){s._p=-1});
+  C.mq=$$("[data-mq]",pg);
+  C.hero=pg.querySelector(".ch-hero");C.heroWrap=C.hero?C.hero.querySelector(".wrap"):null;
+  C.hs=pg.querySelector(".hstory");C.track=C.hs?C.hs.querySelector(".hs-track"):null;C.hsN=C.hs?$$(".hs-n",C.hs):[];
+  sizeHS();
+}
+function sizeHS(){
+  if(!C.hs)return;
+  if(reduced){C.hs.classList.add("static");C.hs.style.height="";return}
+  C.hs.style.height=(innerHeight+Math.max(0,C.track.scrollWidth-innerWidth))+"px";
+}
+
+/* floating stone dust */
+var dust=$("#dust"),dctx=dust.getContext("2d"),DP=[],dW=0,dH=0,dpr=Math.min(1.5,window.devicePixelRatio||1);
+function sizeDust(){
+  dW=innerWidth;dH=innerHeight;dust.width=Math.round(dW*dpr);dust.height=Math.round(dH*dpr);
+  var R=rng(3),n=Math.round(Math.min(110,dW*dH/13000));DP=[];
+  for(var i=0;i<n;i++)DP.push({x:R()*dW,y:R()*dH,z:.15+R()*.85,s:R(),r:R()*6.28,vr:(R()-.5)*.012,vx:(R()-.5)*.1,vy:-.06-R()*.14});
+}
+function drawDust(){
+  dctx.setTransform(dpr,0,0,dpr,0,0);dctx.clearRect(0,0,dW,dH);
+  var light=document.body.dataset.tone==="light",H=dH*1.2;
+  for(var i=0;i<DP.length;i++){var p=DP[i];
+    if(!reduced){p.x+=p.vx;p.y+=p.vy;p.r+=p.vr}
+    var Y=(((p.y-sY*p.z*.45)%H)+H)%H-dH*.1,X=(((p.x+mx*90*p.z)%dW)+dW)%dW,sz=1+p.z*3.4,al=(.12+p.z*.42)*(light?.55:1);
+    dctx.fillStyle=light?"rgba(60,40,160,"+al.toFixed(3)+")":(p.s>.72?"rgba(170,120,255,"+al.toFixed(3)+")":"rgba(140,180,255,"+al.toFixed(3)+")");
+    if(p.s>.5){var k=sz*1.9;dctx.beginPath();for(var j=0;j<3;j++){var ang=p.r+j*2.2+(j===2?.5:0);dctx.lineTo(X+Math.cos(ang)*k,Y+Math.sin(ang)*k)}dctx.closePath();dctx.fill()}
+    else{dctx.beginPath();dctx.arc(X,Y,sz*.55,0,6.283);dctx.fill()}
+  }
+}
+
+var lastP=-1;
+function carveUpdate(){
+  if(current!=="prologue")return;
+  var el=$("#carve"),r=el.getBoundingClientRect(),span=r.height-innerHeight,p=clamp(-r.top/span);
+  if(Math.abs(p-lastP)<.002)return;lastP=p;
+  hero.draw(p,false);
+  var idx=Math.min(3,Math.floor(p*4.2));
+  $$("#carveLines p").forEach(function(l,i){l.classList.toggle("on",i===idx)});
+  $$(".carve-meter b").forEach(function(b,i){b.style.transform="scaleX("+clamp(p*4-i)+")"});
+  $("#scrollHint").style.opacity=p>.05?0:1;
+}
+
+function loop(now){
+  requestAnimationFrame(loop);
+  if(document.hidden)return;
+  var y=scrollY,vh=innerHeight,i;
+  vel+=((y-lastY)-vel)*.18;lastY=y;
+  sY=reduced?y:sY+(y-sY)*.13;var lag=y-sY;
+  mx+=(tmx-mx)*.07;my+=(tmy-my)*.07;gx+=(tgx-gx)*.2;gy+=(tgy-gy)*.2;
+  var max=document.documentElement.scrollHeight-vh;
+  $("#progress").style.transform="scaleX("+(max>0?Math.min(1,y/max):0)+")";
+  $("#glow").style.transform="translate3d("+gx.toFixed(1)+"px,"+gy.toFixed(1)+"px,0)";
+  if(!reduced){
+    for(i=0;i<C.layers.length;i++){var L=C.layers[i],r=L.sc.getBoundingClientRect();if(r.bottom<-300||r.top>vh+300)continue;
+      var top=r.top+lag,ty=top*L.sp+my*L.dp,tx=mx*L.dp+(L.xs?Math.max(0,r.bottom+lag-vh)*L.xs:0),rot=L.rot?" rotateY("+(mx*L.rot).toFixed(2)+"deg) rotateX("+(-my*L.rot).toFixed(2)+"deg)":"";
+      L.el.style.transform="translate3d("+tx.toFixed(1)+"px,"+ty.toFixed(1)+"px,0)"+rot+" "+L.base}
+    C.imgs.forEach(function(img){var r=img.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;img.style.transform="translate3d(0,"+((r.top+r.height/2-vh/2)*-+img.dataset.imgSpeed).toFixed(1)+"px,0) scale(1.04)"});
+    if(C.heroWrap){var hr=C.hero.getBoundingClientRect(),hp=clamp(-hr.top/hr.height);C.heroWrap.style.transform="translate3d(0,"+(hp*170).toFixed(1)+"px,0)";C.heroWrap.style.opacity=(1-hp*1.15).toFixed(3)}
+    var t=(now-t0)/1000,sk=clamp(-vel*.5,-12,12);
+    C.mq.forEach(function(el){var w=el.scrollWidth/6*3,dir=+el.dataset.dir,off=sY*.55+t*38,o=(((off*dir)%w)+w)%w;el.style.transform="translate3d("+(-o).toFixed(1)+"px,0,0) skewX("+sk.toFixed(2)+"deg)"});
+  }
+  C.scrubs.forEach(function(s){var r=s.getBoundingClientRect(),p=clamp((vh*.9-r.top)/(vh*.5+r.height*.4));if(Math.abs(p-s._p)<.004)return;s._p=p;var n=s._words.length;
+    s._words.forEach(function(w,k){w.style.opacity=reduced?1:(.2+.8*clamp(p*n*1.15-k)).toFixed(2)})});
+  if(C.hs&&!reduced){var R=C.hs.getBoundingClientRect(),span=R.height-vh,hp2=clamp(-R.top/Math.max(1,span)),dist=Math.max(0,C.track.scrollWidth-innerWidth);
+    C.track.style.transform="translate3d("+(-hp2*dist).toFixed(1)+"px,0,0)";$("#hsBar").style.transform="scaleX("+hp2.toFixed(3)+")";
+    C.hsN.forEach(function(n){var c=n.parentElement.getBoundingClientRect();n.style.transform="translate3d("+((c.left+c.width/2-innerWidth/2)*-.16).toFixed(1)+"px,0,0)"})}
+  carveUpdate();
+  drawDust();
+}
+
+/* ---------------- binding ---------------- */
+function fit(inp){if(inp.classList.contains("repeat-in"))return;var len=Math.max((inp.value||inp.placeholder||"").length,4);inp.style.width=(Math.min(len,64)*.46+.8).toFixed(2)+"em"}
+$$("[data-bind]").forEach(function(inp){
+  inp.value=get(inp.dataset.bind);
+  if(inp.tagName==="INPUT"&&inp.closest(".madlib"))fit(inp);
+  inp.addEventListener("input",function(){set(inp.dataset.bind,inp.value);if(inp.tagName==="INPUT"&&inp.closest(".madlib"))fit(inp);save();refresh()});
+});
+
+/* ---------------- discover: quiz ---------------- */
+var qi=0;
+function renderQ(){
+  var done=S.answers.length>=QS.length&&qi>=QS.length;
+  $("#qCount").textContent=done?"Complete":(qi+1)+" of "+QS.length;
+  $("#qBar").style.width=(Math.min(qi,QS.length)/QS.length*100)+"%";
+  if(qi>=QS.length){$("#qText").textContent="Done. Your result is below, and it now runs through every chapter.";$("#likert").innerHTML="";}
+  else{$("#qText").textContent="“"+QS[qi].t+"”";
+  $("#likert").innerHTML=LIK.map(function(l,i){return '<button type="button" data-v="'+(i+1)+'"'+(S.answers[qi]===i+1?' style="border-color:var(--accent)"':"")+'><b>'+(i+1)+'</b><span>'+l+'</span></button>'}).join("")}
+  $("#qBack").disabled=qi===0;
+}
+$("#likert").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;S.answers[qi]=+b.dataset.v;qi++;if(qi>=QS.length)score();save();renderQ()});
+$("#qBack").addEventListener("click",function(){if(qi>0){qi--;renderQ()}});
+$("#qRestart").addEventListener("click",function(){qi=0;S.answers=[];save();renderQ()});
+document.addEventListener("keydown",function(e){if(current!=="discover"||$("#quizPane").hidden||qi>=QS.length)return;if(/^[1-5]$/.test(e.key)&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){S.answers[qi]=+e.key;qi++;if(qi>=QS.length)score();save();renderQ()}});
+var factorScores={O:50,C:50,E:50,A:50,N:50};
+function score(){
+  var sums={O:[],C:[],E:[],A:[],N:[]};
+  QS.forEach(function(q,i){var v=S.answers[i]||3;sums[q.f].push(q.r?v:6-v)});
+  Object.keys(sums).forEach(function(f){var a=sums[f];factorScores[f]=((a.reduce(function(x,y){return x+y},0)/a.length)-1)/4*100});
+  var ranked=ORDER.map(function(id){var p=A[id].profile,d=0;Object.keys(p).forEach(function(f){var w=A[id].keys.indexOf(f)>-1?1.6:1;d+=w*Math.pow(factorScores[f]-p[f],2)});return [id,d]}).sort(function(a,b){return a[1]-b[1]});
+  S.arch=ranked[0][0];S.sec=ranked[1][0];S.words=A[S.arch].words.slice();S.example=false;S.factors=factorScores;
+  if(!S.intro.repeat)S.intro.repeat="";
+  refresh();
+  setTimeout(function(){var r=$(".result");r&&r.scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"})},250);
+}
+$("#tabQuiz").addEventListener("click",function(){$("#tabQuiz").setAttribute("aria-selected","true");$("#tabPick").setAttribute("aria-selected","false");$("#quizPane").hidden=false;$("#pickPane").hidden=true;$("#qCount").hidden=false});
+$("#tabPick").addEventListener("click",function(){$("#tabPick").setAttribute("aria-selected","true");$("#tabQuiz").setAttribute("aria-selected","false");$("#quizPane").hidden=true;$("#pickPane").hidden=false;$("#qCount").hidden=true});
+var pickStep=0;
+function renderArchGrid(){$("#archGrid").innerHTML=ORDER.map(function(id){var tag=id===S.arch?"Primary":id===S.sec?"Secondary":"";return '<button type="button" data-a="'+id+'" aria-pressed="'+(id===S.arch||id===S.sec)+'"><b>'+A[id].name.replace("The ","")+'</b><span>'+(tag||A[id].words.join(" · "))+'</span></button>'}).join("")}
+$("#archGrid").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var id=b.dataset.a;
+  if(pickStep===0){if(S.sec===id)S.sec=S.arch;S.arch=id;S.words=A[id].words.slice();pickStep=1}else{if(id!==S.arch)S.sec=id;pickStep=0}
+  S.example=false;save();refresh()});
+
+/* words */
+function wordPool(){
+  if(!S.arch)return [];
+  var pool=[];function add(w){if(pool.indexOf(w)<0)pool.push(w)}
+  A[S.arch].words.forEach(add);SEC().words.forEach(add);
+  var f=S.factors||null;
+  if(f){Object.keys(f).sort(function(a,b){return f[b]-f[a]}).slice(0,2).forEach(function(k){POOL[k].forEach(add)})}else{POOL.O.forEach(add)}
+  S.words.forEach(add);return pool;
+}
+$("#wordPool").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var w=b.dataset.w,i=S.words.indexOf(w);
+  if(i>-1){if(S.words.length>1)S.words.splice(i,1)}else{if(S.words.length>=3)S.words.shift();S.words.push(w)}
+  S.example=false;save();refresh()});
+
+/* ---------------- room ---------------- */
+$("#roomChips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var r=b.dataset.r,i=S.rooms.indexOf(r);if(i>-1)S.rooms.splice(i,1);else S.rooms.push(r);save();refresh()});
+(function(){var s="";for(var i=0;i<42;i++)s+="<i></i>";$("#seats").innerHTML=s})();
+
+/* ---------------- screen ---------------- */
+$("#platChips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var p=b.dataset.p,i=S.plats.indexOf(p);if(i>-1)S.plats.splice(i,1);else{if(S.plats.length>=2)S.plats.shift();S.plats.push(p)}save();refresh()});
+$("#ppw").value=S.ppw;$("#ppw").addEventListener("input",function(e){S.ppw=+e.target.value;save();refresh()});
+var DAYS={1:[1],2:[1,3],3:[0,2,4],4:[0,1,3,4],5:[0,1,2,3,4]};
+
+/* ---------------- rhythm board ---------------- */
+$("#board").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var i=+b.dataset.i;
+  if(b.dataset.act==="del")S.projects.splice(i,1);else{var nx={now:"next",next:"later",later:"now"};S.projects[i][1]=nx[S.projects[i][1]]}
+  S.projExample=false;save();refresh()});
+$("#addProj").addEventListener("submit",function(e){e.preventDefault();var v=$("#projInput").value.trim();if(!v)return;if(S.projExample){S.projects=[];S.projExample=false}S.projects.push([v,"now"]);$("#projInput").value="";save();refresh()});
+
+/* ---------------- copy helper ---------------- */
+function copy(text,toast,pre){
+  function ok(){toast.textContent="Copied";setTimeout(function(){toast.textContent=""},2200)}
+  function fallback(){if(pre){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);toast.textContent="Selected. Press copy on your keyboard."}else toast.textContent="Copy is blocked here. Select the text and copy it."}
+  try{navigator.clipboard.writeText(text).then(ok,fallback)}catch(e){fallback()}
+}
+$("#copyPitch").addEventListener("click",function(){copy($("#pitchEmail").textContent,$("#pitchToast"),$("#pitchEmail"))});
+$("#copyCard").addEventListener("click",function(){copy(cardText(),$("#cardToast"),$("#cardDl"))});
+
+/* ---------------- render everything ---------------- */
+function posLine(){var p=S.pos;if(!(p.who||p.what||p.field||p.build))return "";return "I help "+or(p.who,"[who]")+" "+or(p.what,"[see or do what]")+" in "+or(p.field,"[field]")+", and I build "+or(p.build,"[what]")+"."}
+function introLine(){var n=S.intro;return "I'm "+or(n.name,"[your name]")+". I "+or(n.made,"[what you build or do]")+". What I've learned is that most people get "+or(n.insight,"[an insight]")+" wrong."}
+function repeatLine(){return or(S.intro.repeat,S.arch?A[S.arch].repeat:"[what people should say about you]")}
+function pitchTitle(){var p=S.pitch;return "Why "+or(p.aud,"Egyptian brands")+" "+or(p.belief,"look premium")+" but "+or(p.truth,"don't feel premium")}
+function refresh(){
+  var a=ARC(),b=SEC();
+  $$("[data-example]").forEach(function(el){el.hidden=!S.example});
+  $$('[data-out="archName"]').forEach(function(el){el.textContent=a.name});
+  $$('[data-out="secName"]').forEach(function(el){el.textContent=b.name});
+  $$('[data-out="archEss"]').forEach(function(el){el.textContent=a.essence});
+  $$('[data-out="showLine"]').forEach(function(el){el.textContent=a.name+" shines in "+a.show+"."});
+  $$('[data-out="proveLine"]').forEach(function(el){el.textContent="As "+a.name+", your record should show: "+a.prove+" Short soundbites undersell you; pick formats with room to explain."});
+  $$('[data-out="shadow"]').forEach(function(el){el.textContent=a.shadow});
+  $$('[data-out="shadow2"]').forEach(function(el){el.textContent=b.shadow});
+  $$('[data-out="work"]').forEach(function(el){el.textContent="The antidote: "+a.work});
+  $$('[data-out="wellness"]').forEach(function(el){el.textContent=a.wellness.toLowerCase()});
+  $$('[data-out="nameOr"]').forEach(function(el){el.textContent=or(S.intro.name,"[your name]")});
+  resS.draw(S.arch?1:.02,document.body.dataset.tone==="light");
+  // words
+  $("#wordsOut").innerHTML=[0,1,2].map(function(i){var w=S.words[i];return w?'<span class="word'+(i===0?" grad":"")+'">'+esc(w)+'</span>':'<span class="word" style="border-style:dashed;color:var(--faint)">'+W(i)+'</span>'}).join("");
+  $("#wordPool").innerHTML=wordPool().map(function(w){return '<button type="button" class="chip" data-w="'+esc(w)+'" aria-pressed="'+(S.words.indexOf(w)>-1)+'">'+esc(w)+'</button>'}).join("");
+  if(!S.arch)$("#wordPool").innerHTML='<span class="fine">Your word options appear here after the snapshot.</span>';
+  renderArchGrid();
+  // voice tips
+  $("#voiceTips").innerHTML=[["How you sound",a.sound],["Where you show up",a.show.charAt(0).toUpperCase()+a.show.slice(1)+"."],["What proves it",a.prove]].map(function(x){return '<div class="panel"><p class="eyebrow">'+x[0]+'</p><p style="margin-top:10px">'+esc(x[1])+'</p></div>'}).join("");
+  // intro meter
+  var words=introLine().replace(/\[[^\]]*\]/g,"x").split(/\s+/).length,sec=Math.round(words/2.5);
+  $("#introSec").textContent=sec+" sec";$("#introFill").style.width=Math.min(100,sec/30*100)+"%";
+  var rep=$("#in-repeat");if(document.activeElement!==rep){rep.placeholder=a.repeat;rep.value=S.intro.repeat}
+  // rooms
+  $("#roomChips").innerHTML=ROOMS.map(function(r){var rec=a.rooms.indexOf(r)>-1;return '<button type="button" class="chip'+(rec?" rec":"")+'" data-r="'+r+'" aria-pressed="'+(S.rooms.indexOf(r)>-1)+'">'+r+'</button>'}).join("");
+  $("#roomCount").textContent=S.rooms.length;
+  // formats
+  $("#formats").innerHTML=FMTS.map(function(f){var best=a.fmts.indexOf(f[0])>-1;return '<div class="fmt'+(best?" best":"")+'"><span class="badge">Suits you</span><b>'+f[0]+'</b><span>'+f[1]+'</span></div>'}).join("");
+  // pitch
+  var nm=or(S.intro.name,"[your name]"),pl=posLine();
+  $("#pitchEmail").textContent="Subject: An episode idea: "+pitchTitle()+"\n\nHi [host name],\n\nI've been listening to [show name]. One idea I think your audience would find useful: "+pitchTitle().replace(/^Why/,"why")+".\n\n"+(pl||"[your positioning sentence from chapter 02]")+"\n\nI can bring three concrete examples from my own work. Would a conversation fit an upcoming episode?\n\n"+nm;
+  // pillars
+  $("#pillars").innerHTML=PILLARS.map(function(p,i){return '<article class="pillar p'+(i+1)+'"><span class="k">Pillar '+(i+1)+' · '+p.k+'</span><h3'+(i===0?' class="grad"':"")+'>'+esc(W(i))+'</h3><p>'+p.d+'</p><ul>'+p.ideas.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul></article>'}).join("");
+  $("#platChips").innerHTML=PLATS.map(function(p){return '<button type="button" class="chip" data-p="'+p+'" aria-pressed="'+(S.plats.indexOf(p)>-1)+'">'+p+'</button>'}).join("");
+  $("#ppwOut").textContent=S.ppw;
+  $("#paceLbl").textContent=S.ppw===1?"Light but steady":S.ppw<=3?"Sustainable":"Heavy: only if you can keep it for a year";
+  var dn=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],html='<span></span>'+dn.map(function(d){return '<span class="hd">'+d+'</span>'}).join(""),n=0;
+  for(var w=1;w<=4;w++){html+='<span class="wk">Week '+w+'</span>';for(var d=0;d<7;d++){if(DAYS[S.ppw].indexOf(d)>-1){var pi=n%3;n++;html+='<span class="day d'+(pi+1)+'" title="'+esc(W(pi))+'">'+esc(S.words[pi]?S.words[pi].slice(0,4):"P"+(pi+1))+'</span>'}else html+='<span class="day"></span>'}}
+  $("#cal").innerHTML=html;
+  // board
+  var L={now:["Now","Feeds income and your brand"],next:["Next","Launch once Now is steady"],later:["Later","Talk about it as vision"]};
+  $("#board").innerHTML=["now","next","later"].map(function(k){var items=S.projects.map(function(p,i){return [p,i]}).filter(function(x){return x[0][1]===k});
+    return '<div class="lane"><h4>'+L[k][0]+' <small>'+items.length+'</small></h4><p class="hint">'+L[k][1]+'</p>'+items.map(function(x){return '<div class="item"><span class="lbl">'+esc(x[0][0])+'</span><span><button type="button" data-i="'+x[1]+'" aria-label="Move '+esc(x[0][0])+'">Move →</button><button type="button" data-act="del" data-i="'+x[1]+'" aria-label="Remove '+esc(x[0][0])+'">✕</button></span></div>'}).join("")+'</div>'}).join("");
+  $("#projExample").hidden=!S.projExample;
+  fillMq();
+  if(current==="plan")renderPlan();
+}
+
+/* ---------------- plan ---------------- */
+function lanes(k){return S.projExample?[]:S.projects.filter(function(p){return p[1]===k}).map(function(p){return p[0]})}
+function missing(){var m=[];
+  if(!S.arch)m.push(["Archetype","discover"]);if(S.words.length<3)m.push(["Three words","discover"]);
+  if(!(S.q.know||S.q.believe||S.q.who))m.push(["Three questions","define"]);if(!posLine())m.push(["Positioning sentence","define"]);
+  if(!S.intro.name||!S.intro.made)m.push(["30-second intro","room"]);if(S.rooms.length<5)m.push(["At least 5 rooms","room"]);
+  if(!S.pitch.aud)m.push(["Pitch idea","record"]);if(!S.plats.length)m.push(["Platforms","screen"]);
+  if(S.projExample)m.push(["Now, Next, Later","rhythm"]);return m}
+function report(){
+  var a=ARC(),pl=S.plats.join(" and "),L=[],done=Object.keys(S.checks).filter(function(k){return S.checks[k]}).length;
+  function add(k,v){if(v&&String(v).trim())L.push("*"+k+":* "+String(v).trim())}
+  add("Name",S.intro.name);
+  add("Archetype",S.arch?a.name+(S.sec?" (secondary "+A[S.sec].name+")":""):"");
+  add("Three words",S.words.join(", "));
+  add("What I know better than most",S.q.know);add("What I believe that others don't say",S.q.believe);add("Who I want to trust me",S.q.who);
+  add("Positioning",posLine());
+  if(S.intro.name||S.intro.made)add("30-second intro",introLine());
+  if(S.intro.name||S.intro.repeat)add("What people should repeat","Talk to "+or(S.intro.name,"me")+". "+repeatLine());
+  add("Rooms",S.rooms.join(", "));
+  if(S.pitch.aud||S.pitch.belief||S.pitch.truth)add("Pitch idea",pitchTitle());
+  if(S.arch)add("Record formats",a.fmts.join(", "));
+  if(pl)add("On screen",S.ppw+" posts a week on "+pl);
+  if(!S.projExample){add("Now",lanes("now").join(", "));add("Next",lanes("next").join(", "));add("Later",lanes("later").join(", "))}
+  if(done)add("90-day checklist",done+" of 9 done");
+  return L;
+}
+function renderPlan(){
+  var a=ARC(),pl=S.plats.length?S.plats.join(" and "):"your main platform",half=Math.max(1,Math.min(2,S.ppw));
+  var phases=[
+   ["Weeks 1–2","Set the stone",["Rewrite your headline and bio around your positioning sentence","Practise your 30-second intro until it sounds like you","Start "+half+" post"+(half>1?"s":"")+" a week on "+pl]],
+   ["Weeks 3–6","Build the rhythm",["Post "+S.ppw+" times a week, rotating "+WS().join(", "),"Pitch 2 shows with: "+pitchTitle(),"Get introduced in 2 of your rooms"+(S.rooms.length?" ("+S.rooms.slice(0,2).join(", ")+")":"")]],
+   ["Weeks 7–12","Get on the stage",["Speak at one event or host one small workshop","Publish one long article in your "+W(1)+" pillar",S.arch?"Check in on your shadow: "+a.shadow.toLowerCase():"Check in on your archetype's shadow"]]
+  ];
+  $("#timeline").innerHTML=phases.map(function(p,pi){return '<div class="phase"><span class="eyebrow">'+p[1]+'</span><p class="when" style="margin-top:6px">'+p[0]+'</p><ul class="checks" style="margin-top:12px">'+p[2].map(function(t,ti){var id="ck-"+pi+"-"+ti;return '<li><label for="'+id+'"><input type="checkbox" id="'+id+'" data-ck="'+id+'"'+(S.checks[id]?" checked":"")+'><span>'+esc(t)+'</span></label></li>'}).join("")+'</ul></div>'}).join("");
+  var E="Not filled yet";
+  var rows=[["Name",or(S.intro.name,E),"big"],["Archetype",S.arch?a.name+(S.sec?" · secondary "+A[S.sec].name:""):E+" (chapter 01)","big"],["Three words",S.words.length?S.words.join(" · "):E+" (chapter 01)","big"],
+   ["What I know",or(S.q.know,E+" (chapter 02)"),""],["What I believe",or(S.q.believe,E+" (chapter 02)"),""],["Who should trust me",or(S.q.who,E+" (chapter 02)"),""],
+   ["Positioning",posLine()||E+" (chapter 02)","v"],["30-second intro",(S.intro.name||S.intro.made)?introLine():E+" (chapter 03)","v"],["What people repeat","Talk to "+or(S.intro.name,"[your name]")+". "+repeatLine(),"v"],
+   ["Rooms",S.rooms.length?S.rooms.join(", "):E+" (chapter 03)",""],["Record",(S.arch?a.fmts.join(", ")+" · ":"")+((S.pitch.aud||S.pitch.belief)?"pitch: "+pitchTitle():"pitch "+E.toLowerCase()+" (chapter 04)"),""],
+   ["Screen",S.plats.length?S.ppw+" posts a week on "+pl:E+" (chapter 05)",""],["Now · Next · Later",S.projExample?E+" (chapter 06)":["now","next","later"].map(function(k){return k.charAt(0).toUpperCase()+k.slice(1)+": "+(lanes(k).join(", ")||"—")}).join(" · "),""]];
+  $("#cardDl").innerHTML=rows.map(function(r){var empty=r[1].indexOf(E)===0;return '<dt>'+r[0]+'</dt><dd class="'+r[2]+'"'+(empty?' style="opacity:.45"':"")+'>'+esc(r[1])+'</dd>'}).join("");
+  var m=missing();
+  $("#missing").innerHTML=m.length?'<b>'+m.length+' to go before you send:</b> '+m.map(function(x){return '<a href="#'+x[1]+'">'+x[0]+'</a>'}).join(" · "):'<b>Everything is filled in.</b> Your full journey is ready to send.';
+  var lines=report(),msg="Hi Rise Personal team, here are my results from the personal branding journey on your site:\n\n"+(lines.length?lines.join("\n"):"(I haven't filled in my answers yet.)")+"\n\nI'd like to talk about building my personal brand.";
+  $("#waCard").href=WA+"?text="+encodeURIComponent(msg);
+}
+$("#timeline").addEventListener("change",function(e){var c=e.target.dataset.ck;if(c){S.checks[c]=e.target.checked;save();renderPlan()}});
+function cardText(){return "My Rise Personal journey\n\n"+report().join("\n").replace(/\*/g,"")+"\n\nRise Personal · wa.me/971506832835"}
+var resetArmed=false;
+$("#resetAll").addEventListener("click",function(){
+  var b=$("#resetAll");
+  if(!resetArmed){resetArmed=true;b.textContent="Tap again to clear everything";setTimeout(function(){resetArmed=false;b.textContent="Start over"},3500);return}
+  resetArmed=false;b.textContent="Start over";
+  S=JSON.parse(JSON.stringify(DEFAULT));try{localStorage.removeItem("rp-journey-v2")}catch(e){}
+  qi=0;$$("[data-bind]").forEach(function(inp){inp.value="";if(inp.tagName==="INPUT"&&inp.closest(".madlib"))fit(inp)});
+  $("#ppw").value=S.ppw;renderQ();refresh();renderPlan();buildIndex();paintMini();
+  $("#cardToast").textContent="Cleared. Your journey starts fresh.";
+});
+
+/* ---------------- boot ---------------- */
+buildIndex();renderQ();refresh();
+if(S.answers.length>=QS.length){qi=QS.length;if(S.factors)factorScores=S.factors;renderQ()}
+try{history.scrollRestoration="manual"}catch(e){}
+route();
+fillMq();sizeDust();hero.draw(0,false);lastP=-1;cache($("#p-"+current));requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
